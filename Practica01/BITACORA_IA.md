@@ -2,3 +2,9 @@
 Como lo recupero?
 Respuesta de la IA:
 - Me enseño a utilizar "git restore"
+
+"Como puedo hacer mi conversor de temperatura?
+¿Qué funciones se utilizan para el input de datos y como puedo operar estos datos?"
+Respuesta de la IA:
+- Me mostro a implementar java.util.Scanner
+- Aprendi a utilizar nextDouble(), nextInt(), nextLine()
