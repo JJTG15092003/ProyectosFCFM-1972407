@@ -1,0 +1,4 @@
+- Esta es mi primera vez usando github y programando en java. Asi que tuve que empezar desde el principio.
+- Primeramente, instale git desde su página git-scm.com
+- Busque IDE para trabajar, y aunque ya estaba familiarizado con visual studio code, elegí usar IntelliJ porque vi que es el más amigable con los estudiantes.
+- ahora estoy escribiendo esto y planeo hacer mi primer commit (yupi)
