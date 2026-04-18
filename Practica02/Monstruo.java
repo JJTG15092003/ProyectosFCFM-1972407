@@ -7,7 +7,7 @@ public class Monstruo
     private int vidaActual;
     private boolean esJefe;
 
-    //Constructor
+    //Constructores
     //Monstruo - datos completos
     public Monstruo(String nombre, String tipo, int nivel, int vidaActual, boolean esJefe)
     {
@@ -38,24 +38,28 @@ public class Monstruo
     {
         this.vidaActual -= cantidad;
         System.out.println(nombre + " recibio " + cantidad + " de daño!");
+        System.out.println("Su salud actual es: " + this.vidaActual + "!");
     }
     public void recibirCura(int cantidad)
     {
         this.vidaActual += cantidad;
         System.out.println(nombre + " ha aumentado su salud en: " + cantidad + "!");
+        System.out.println("Su salud actual es: " + this.vidaActual + "!");
     }
     public void subidaDeNivel()
     {
         this.nivel += 1;
         System.out.println(nombre + " ha subido de nivel!");
+        System.out.println("Su nivel actual es: " + this.nivel + "!");
     }
-    public void evolucion()
+    public void evolucion(String nuevoTipo)
     {
         this.tipo = nuevoTipo;
         System.out.println(nombre + " ha evolucionado en: " + nuevoTipo + "!");
     }
     //Getter es para buscar el nombre
-    public String getNombre() {
+    public String getNombre()
+    {
         return nombre;
     }
 }
