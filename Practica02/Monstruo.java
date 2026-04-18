@@ -34,12 +34,12 @@ public class Monstruo
     {
         System.out.println("[" + tipo + "] " + nombre + " - LVL: " + nivel + " - HP: " + vidaActual);
     }
-    public void recibirDanio()
+    public void recibirDanio(int cantidad)
     {
         this.vidaActual -= cantidad;
         System.out.println(nombre + " recibio " + cantidad + " de daño!");
     }
-    public void recibirCura()
+    public void recibirCura(int cantidad)
     {
         this.vidaActual += cantidad;
         System.out.println(nombre + " ha aumentado su salud en: " + cantidad + "!");
@@ -53,5 +53,9 @@ public class Monstruo
     {
         this.tipo = nuevoTipo;
         System.out.println(nombre + " ha evolucionado en: " + nuevoTipo + "!");
+    }
+    //Getter es para buscar el nombre
+    public String getNombre() {
+        return nombre;
     }
 }
