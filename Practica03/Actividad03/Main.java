@@ -3,28 +3,25 @@ public class Main
 {
     public static void main(String[] args)
     {
-        //Creación del contenedor de monstruos
+        //Contenedor de monstruos
         Bestiario miBestiario = new Bestiario();
 
-        //Creación de monstruos de prueba
-        Monstruo m1 = new Monstruo("Lesser Lich", "No-Muerto", 45, 1000, true);
-        Monstruo m2 = new Monstruo("Chaos Lord Slime", "Organico", 4750, 75000, true);
-        Monstruo m3 = new Monstruo("Zombie", "No-muerto", 5, 25, false);
-        Monstruo m4 = new Monstruo("Automata de combate", "Constructo artificial", 17, 45, false);
+        //Mis recompensas
+        Botin dropLich = new Botin("Cetro de Hueso", 500);
+        Botin dropSlime = new Botin("Núcleo de Caos", 10000);
+        Botin dropComun = new Botin("Trapo sucio", 2);
 
-        //Los agregamos al bestiario
+        //Necesitamos... MONSTRUOS
+        Monstruo m1 = new Monstruo("Lesser Lich", "No-Muerto", 45, 1000, dropLich, true);
+        Monstruo m2 = new Monstruo("Chaos Lord Slime", "Organico", 475, 7500, dropSlime, true);
+        Monstruo m3 = new Monstruo("Zombie", "No-muerto", 5, 25, dropComun, false);
+        Monstruo m4 = new Monstruo("Automata de combate", "Constructo artificial", 17, 45, dropComun, false);
+
         miBestiario.agregarMonstruo(m1);
         miBestiario.agregarMonstruo(m2);
         miBestiario.agregarMonstruo(m3);
         miBestiario.agregarMonstruo(m4);
 
-        //Mostrando los datos de los monstruos
         miBestiario.mostrarTodo();
-
-        //Prueba de metodos de instancia
-        m1.recibirCura(500);
-        m2.recibirDanio(400);
-        m3.evolucion("Mutant Zombie");
-        m4.aumentoNivel();
     }
 }

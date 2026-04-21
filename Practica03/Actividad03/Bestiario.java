@@ -20,9 +20,7 @@ public class Bestiario
         System.out.println("=== Bestiario ===");
         for(Monstruo m : listaMonstruos)
         {
-            m.mostrarInfo();
+            System.out.println(m);
         }
     }
-
-
 }
