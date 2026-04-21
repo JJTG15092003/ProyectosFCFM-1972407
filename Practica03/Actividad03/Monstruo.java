@@ -7,6 +7,7 @@ public class Monstruo
     private String tipo;
     private float vida;
     private int nivel;
+    private Botin recompensa;
     private boolean esJefe;
 
     //Mis constructores
@@ -31,6 +32,14 @@ public class Monstruo
     }
 
     //Mis metodos
+    public void setRecompensa(Botin recompensa)
+    {
+        this.recompensa = recompensa;
+    }
+    public void mostrarInfo()
+    {
+        System.out.println("[" + tipo + "] " + nombre + " - LVL: " + nivel + " - HP: " + vida);
+    }
     public void recibirCura(float cantidad)
     {
         this.vida += cantidad;
