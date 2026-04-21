@@ -22,6 +22,15 @@ public class Main
         miBestiario.agregarMonstruo(m3);
         miBestiario.agregarMonstruo(m4);
 
+        for(Monstruo m : miBestiario.getLista())
+        {
+            // Usamos el Getter para consultar si es jefe
+            if(m.isEsJefe())
+            {
+                System.out.println("¡CUIDADO! Apareció el jefe: " + m.getNombre());
+            }
+        }
+
         miBestiario.mostrarTodo();
     }
 }

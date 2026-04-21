@@ -14,16 +14,44 @@ public class Monstruo
     public Monstruo(String nombre, String tipo, float vida, int nivel, Botin recompensa, boolean esJefe) {
         this.nombre = nombre;
         this.tipo = tipo;
-        this.vida = vida;
-        this.nivel = nivel;
-        this.recompensa = recompensa;
+        setVida(vida);
+        setNivel(nivel);
+        setRecompensa(recompensa);
         this.esJefe = esJefe;
     }
 
-    //Mi setter
+    //Mis setter
     public void setRecompensa(Botin recompensa)
     {
-        this.recompensa = recompensa;
+        // REGLA DE VALIDACIÓN: Un JEFE no puede tener una recompensa vacía (null)
+        if (this.esJefe && recompensa == null)
+        {
+            System.out.println("¡Error! Un Jefe siempre debe soltar algo valioso.");
+        } else
+        {
+            this.recompensa = recompensa;
+        }
+    }
+    public void setNivel(int nivel)
+    {
+        if (nivel >= 1)
+        {
+            this.nivel = nivel;
+        } else
+        {
+            System.out.println("Nivel fuera de rango!");
+        }
+    }
+    public void setVida(float vida)
+    {
+        if (vida >= 0)
+        {
+            this.vida = vida;
+        }
+        else
+        {
+            System.out.println("Vida no puede ser inferior a 1!");
+        }
     }
 
     //Mi toString
@@ -33,6 +61,16 @@ public class Monstruo
         return "MONSTRUO: " + nombre + " [Nivel " + nivel + "]" +
                 "\n > Status: " + (esJefe ? "JEFE" : "Normal") +
                 "\n > Botín: " + recompensa; // Llama al toString de Botin
+    }
+
+    //Mis getter
+    public boolean isEsJefe()
+    {
+        return esJefe;
+    }
+    public String getNombre()
+    {
+        return nombre;
     }
 
     //Mis metodos
@@ -46,7 +84,7 @@ public class Monstruo
     }
     public void aumentoNivel()
     {
-        this.nivel += 1;
+        setNivel(this.nivel + 1);
     }
     public void evolucion(String cambio)
     {

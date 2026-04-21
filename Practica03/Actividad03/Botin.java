@@ -8,7 +8,8 @@ public class Botin
 
     //Constructor
 
-    public Botin(String item, int oro) {
+    public Botin(String item, int oro)
+    {
         this.item = item;
         this.oro = oro;
     }

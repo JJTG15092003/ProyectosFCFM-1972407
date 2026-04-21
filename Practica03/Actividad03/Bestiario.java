@@ -9,6 +9,11 @@ public class Bestiario
         this.listaMonstruos = new ArrayList<>();
     }
 
+    public ArrayList<Monstruo> getLista()
+    {
+        return listaMonstruos;
+    }
+
     //Mis llamadas
     public void agregarMonstruo(Monstruo m)
     {
