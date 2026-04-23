@@ -14,3 +14,8 @@ Respuesta de la IA:
 Asi mismo, el metodo "lanzarHechizo()" es original de esta subclase heredada no?"
 Respuesta de la IA:
 - Me confirmo lo que habia planteado
+
+"Para mi clase del slime, quiero crear una condicion donde el daño ejecutado sea elegido aleatoriamente dentro de un rango. Por lo que me gustaria que se eligiera aleatoriamente. ¿como lo podria lograr?"
+Respuesta de la IA:
+- Importar java.util.Random
+- Crear una variable multiplicador, y usar la funcion nextFloat() para generar el intervalo entre 0.0 y 1.0

@@ -18,14 +18,13 @@ public class zombie extends noMuerto
     public void aumentoNivel()
     {
         System.out.println(getNombre() + " se ha fortalezido gracias al combate!");
-        this.vida += 20;
-        System.out.println("La salud de" + getNombre() + " ha invrementado en 20 puntos debido a su aumento de nivel!");
+        super.aumentoNivel();
     }
 
     @Override
     public String toString()
     {
         String infoBase = super.toString();
-        return infoBase + " Su cuerpo tambalea, su mirada ciega recae sobre ti dandote un escalofrio por la espalda...";
+        return infoBase + "\n > Su cuerpo tambalea, su mirada ciega recae sobre ti dandote un escalofrio por la espalda...";
     }
 }

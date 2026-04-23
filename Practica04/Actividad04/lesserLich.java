@@ -28,7 +28,7 @@ public class lesserLich extends noMuerto
     public void aumentoNivel()
     {
         System.out.println(getNombre() + " aumenta de nivel tras su enfrentamiento!");
-        this.nivel += 1;
+        super.aumentoNivel();
         System.out.println(getNombre() + " tiene ahora " + this.nivel + " nivel/es!");
         almasAtrapadas += 5;
     }

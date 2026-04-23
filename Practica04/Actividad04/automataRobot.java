@@ -12,10 +12,4 @@ public class automataRobot extends Monstruo
     {
         System.out.println("El cuerpo artificial de " + nombre + " es inmune a la curacion!");
     }
-
-    @Override
-    public void aumentoNivel()
-    {
-        System.out.println("El cuerpo artificial de " + nombre + " es incapaz de evolucionar por su naturaleza inerte!");
-    }
 }

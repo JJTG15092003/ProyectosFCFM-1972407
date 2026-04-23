@@ -10,20 +10,27 @@ public class automata extends automataRobot
     @Override
     public void recibirDanio(float cantidad)
     {
-        System.out.println("El cuerpo robótico de " + getNombre() + " se cae a pedazos!");
-        System.out.println(getNombre() + " ha perdido " + cantidad + " puntos de salud!");
-        super.recibirDanio(cantidad);
+        double probabilidad = Math.random();
+        if(probabilidad > 0.5)
+        {
+            System.out.println(getNombre() + " no pudo soportar el ataque!");
+            super.recibirDanio(cantidad * 1.3f);
+        }
+        else
+        {
+            System.out.println("¡SISTEMA DE DEFENSA ACTIVO! " + getNombre() + " bloqueó el ataque.");
+        }
     }
     @Override
-    public void recibirCura(float vida)
+    public String toString()
     {
-        System.out.println(getNombre() + " ha reunido sus partes faltantes y se ha reconstruido!");
-        System.out.println(getNombre() + " ha regenerado " + vida + " puntos de salud!");
-        super.recibirCura(vida);
+        return super.toString() + "\n > El cuerpo de " + getNombre() + " tambalea con cada intento de dar un paso...";
     }
     @Override
     public void aumentoNivel()
     {
-        System.out.println(getNombre() + " se ha vuelto mas fuerte! Ha subido de nivel!");
+        System.out.println(getNombre() + " sube de nivel! y se logra reconstruir!");
+        super.aumentoNivel();
+        this.vida += vida * 0.5f;
     }
 }
