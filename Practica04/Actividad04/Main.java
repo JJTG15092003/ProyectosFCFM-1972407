@@ -13,11 +13,8 @@ public class Main
         Botin dropElder = new Botin("Núcleo de Valstrax", 8000);
 
         //Necesitamos... MONSTRUOS
-        Monstruo m1 = new Monstruo("Lesser Lich", 150, 45, dropLich, true);
-        Monstruo m2 = new Monstruo("Chaos Lord Slime",475000, 457, dropSlime, true);
-        Monstruo m3 = new Monstruo("Zombie", 25, 5, dropComun, false);
-        Monstruo m4 = new Monstruo("Automata de combate",45, 17, dropComun, false);
-        Monstruo m5 = new Monstruo("Valstrax",75000, 40, dropElder, true);
+        lesserLich m1 = new lesserLich("Lesser lich", 150, 45, dropLich, true);
+
 
         miBestiario.agregarMonstruo(m1);
         miBestiario.agregarMonstruo(m2);
