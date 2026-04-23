@@ -1,8 +1,10 @@
 package Actividad04;
+import java.util.Random;
 public class Main
 {
     public static void main(String[] args)
     {
+        Random random = new Random();
         //Contenedor de monstruos
         Bestiario miBestiario = new Bestiario();
 
@@ -33,7 +35,34 @@ public class Main
                 System.out.println("¡CUIDADO! Apareció el jefe: " + m.getNombre());
             }
         }
-
         miBestiario.mostrarTodo();
+
+        System.out.println("\n\n\n");
+        //Generador de eventos aleatorios para probar que todo funcione
+
+        System.out.println("=== INICIANDO SIMULACIÓN DE ENCUENTROS ===");
+
+        for(Monstruo m : miBestiario.getLista())
+        {
+            System.out.println("\n--- Evento para: " + m.getNombre() + " ---");
+
+            int evento = random.nextInt(3);
+
+            switch(evento)
+            {
+                case 0:
+                    System.out.println("[ACCIÓN: ATAQUE SORPRESA]");
+                    m.recibirDanio(30.0f);
+                    break;
+                case 1:
+                    System.out.println("[ACCIÓN: POCIÓN DE VIDA]");
+                    m.recibirCura(15.0f);
+                    break;
+                case 2:
+                    System.out.println("[ACCIÓN: ENTRENAMIENTO]");
+                    m.aumentoNivel();
+                    break;
+            }
+        }
     }
 }

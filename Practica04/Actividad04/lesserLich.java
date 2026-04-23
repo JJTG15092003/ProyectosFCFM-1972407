@@ -21,6 +21,7 @@ public class lesserLich extends noMuerto
         {
             System.out.println("El cuerpo espectral de " + getNombre() + " comienza a desaparecer!");
             super.recibirDanio(cantidad);
+            System.out.println(getNombre() + " cuenta ahora con " + vida + " puntos de salud!");
         }
     }
 

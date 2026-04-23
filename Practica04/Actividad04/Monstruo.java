@@ -59,8 +59,9 @@ public class Monstruo
     @Override
     public String toString()
     {
-        return "MONSTRUO: " + nombre + " [Nivel " + nivel + "]" +
+        return "MONSTRUO: " + nombre +" [Nivel " + nivel + "]" +
                 "\n > Status: " + (esJefe ? "JEFE" : "Normal") +
+                "\n > Vida: " + vida +
                 "\n > Botín: " + recompensa; // Llama al toString de Botin
     }
 

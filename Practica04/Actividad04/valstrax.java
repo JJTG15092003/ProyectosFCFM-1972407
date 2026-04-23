@@ -17,13 +17,13 @@ public class valstrax extends organico
             System.out.println("Las escamas de " + getNombre() + " lo protegen del daño recibido!");
             super.recibirDanio(cantidad * 0.85f);
             postura -= 1;
-            System.out.println(getNombre() + " ahora tiene " + this.vida + " puntos de salud!");
+            System.out.println(getNombre() + " ahora tiene " + vida + " puntos de salud!");
         }
         else
         {
             System.out.println(getNombre() + " no tiene postura defensiva, tu ataque impacta de lleno!");
             super.recibirDanio(cantidad * 1.2f);
-            System.out.println(getNombre() + " ahora tiene " + this.vida + " puntos de salud!");
+            System.out.println(getNombre() + " ahora tiene " + vida + " puntos de salud!");
         }
     }
     @Override
@@ -31,7 +31,7 @@ public class valstrax extends organico
     {
         System.out.println("La bioenergia del ambiente se condendas... " + getNombre() + " la absorbe y se regenera!");
         super.recibirCura(vida);
-        System.out.println(getNombre() + " ahora tiene " + this.vida + " puntos de salud!");
+        System.out.println(getNombre() + " ahora tiene " + vida + " puntos de salud!");
     }
     @Override
     public void aumentoNivel()

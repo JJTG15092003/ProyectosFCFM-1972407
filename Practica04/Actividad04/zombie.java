@@ -12,6 +12,7 @@ public class zombie extends noMuerto
     {
         System.out.println("El cuerpo putrefacto de " + getNombre() + " comienza a descomponerse!");
         super.recibirDanio(cantidad);
+        System.out.println(getNombre() + " cuenta ahora con " + vida + " puntos de salud!");
     }
 
     @Override

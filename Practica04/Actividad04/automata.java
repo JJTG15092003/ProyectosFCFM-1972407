@@ -15,6 +15,7 @@ public class automata extends automataRobot
         {
             System.out.println(getNombre() + " no pudo soportar el ataque!");
             super.recibirDanio(cantidad * 1.3f);
+            System.out.println(getNombre() + " cuenta ahora con " + vida + " puntos de salud!");
         }
         else
         {
@@ -32,5 +33,6 @@ public class automata extends automataRobot
         System.out.println(getNombre() + " sube de nivel! y se logra reconstruir!");
         super.aumentoNivel();
         this.vida += vida * 0.5f;
+        System.out.println(getNombre() + " cuenta ahora con " + vida + " puntos de salud!");
     }
 }
