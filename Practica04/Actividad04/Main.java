@@ -14,7 +14,10 @@ public class Main
 
         //Necesitamos... MONSTRUOS
         lesserLich m1 = new lesserLich("Lesser lich", 150, 45, dropLich, true);
-
+        zombie m2 = new zombie("Zombi común", 25, 5, dropComun, false);
+        chaosSlime m3 = new chaosSlime("Chaos Demon Lord GodLike Slime", 75000000, 3000, dropSlime, true);
+        valstrax m4 = new valstrax("Drágon anciano Valstrax", 75000, 75, dropElder, true);
+        automata m5 = new automata("Sirvienta automata de porcelana", 150, 14, dropComun, false);
 
         miBestiario.agregarMonstruo(m1);
         miBestiario.agregarMonstruo(m2);
