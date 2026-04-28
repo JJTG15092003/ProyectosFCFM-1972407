@@ -10,9 +10,33 @@ public class zombie extends noMuerto implements Interactuable
     @Override
     public void recibirDanio(float cantidad)
     {
-        System.out.println("El cuerpo putrefacto de " + getNombre() + " comienza a descomponerse!");
         super.recibirDanio(cantidad);
-        System.out.println(getNombre() + " cuenta ahora con " + vida + " puntos de salud!");
+    }
+
+    // Sobrecarga 2: Daño Elemental
+    public void recibirDanio(float cantidad, String tipoElemental)
+    {
+        if (tipoElemental.equalsIgnoreCase("Agua"))
+        {
+            System.out.println("¡El agua debilita la energía de Valstrax!");
+            this.recibirDanio(cantidad * 1.5f); // Recibe más daño
+        } else
+        {
+            this.recibirDanio(cantidad);
+        }
+    }
+
+    // Sobrecarga 3: Daño Crítico
+    public void recibirDanio(float cantidad, boolean esCritico)
+    {
+        if (esCritico)
+        {
+            System.out.println("¡HERIDA ABIERTA EN LAS ALAS!");
+            this.recibirDanio(cantidad * 2.0f);
+        } else
+        {
+            this.recibirDanio(cantidad);
+        }
     }
 
     @Override
@@ -29,16 +53,28 @@ public class zombie extends noMuerto implements Interactuable
         return infoBase + "\n > Su cuerpo tambalea, su mirada ciega recae sobre ti dandote un escalofrio por la espalda...";
     }
 
-    //Mi vinculo a Interactuable.java
     @Override
     public float calcularMultiplicadorDanio()
     {
-        return 1.2f;
+        // Los zombies no dependen de su vida
+        return 1.15f;
     }
 
     @Override
     public int generarExperienciaAlMorir()
     {
-        return 0;
+        return this.nivel * 50; // Dan poca experiencia
+    }
+
+    @Override
+    public void prepararAtaque()
+    {
+        System.out.println(nombre + " emite un gemido ronco y arrastra los pies...");
+    }
+
+    @Override
+    public void finalizarAccion()
+    {
+        System.out.println(nombre + " se queda tambaleando tras el intento de mordida.");
     }
 }

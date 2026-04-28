@@ -9,6 +9,7 @@ public class valstrax extends organico implements Interactuable
         super(nombre, vida, nivel, recompensa, esJefe);
     }
 
+    //Mi sobrecarga 1
     @Override
     public void recibirDanio(float cantidad)
     {
@@ -26,6 +27,7 @@ public class valstrax extends organico implements Interactuable
             System.out.println(getNombre() + " ahora tiene " + vida + " puntos de salud!");
         }
     }
+
     @Override
     public void recibirCura(float vida)
     {
@@ -60,5 +62,25 @@ public class valstrax extends organico implements Interactuable
     public int generarExperienciaAlMorir()
     {
         return 0;
+    }
+
+    @Override
+    public void prepararAtaque()
+    {
+        System.out.println(getNombre() + " enciende sus propulsores de energía dragón...");
+        if (this.vida < 1000)
+        {
+            System.out.println("¡ADVERTENCIA: Valstrax ha entrado en estado de desesperación! AMBUSH!");
+        }
+    }
+
+    //Mi metodo abstracto
+    @Override
+    public void finalizarAccion()
+    {
+        System.out.println(getNombre() + " aterriza tras el impacto, dejando una estela roja.");
+        // Podrías aprovechar para recuperar algo de postura defensiva tras atacar
+        this.postura += 1;
+        System.out.println("Postura defensiva recuperada: " + postura);
     }
 }

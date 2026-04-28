@@ -39,31 +39,29 @@ public class Main
         miBestiario.mostrarTodo();
 
         System.out.println("\n\n\n");
-        //Generador de eventos aleatorios para probar que todo funcione
+        //Generador de eventos aleatorios para probar que funcione
 
-        System.out.println("=== INICIANDO SIMULACIÓN DE ENCUENTROS ===");
+        System.out.println("=== SIMULACIÓN DE COMBATE FINAL ===");
 
-        for(Monstruo m : miBestiario.getLista())
+        for (Monstruo m : miBestiario.getLista())
         {
-            System.out.println("\n--- Evento para: " + m.getNombre() + " ---");
+            // 1. Llamada al Template Method
+            m.realizarAccionDeCombate();
 
-            int evento = random.nextInt(3);
+            // 2. Uso de la Interfaz
+            System.out.println("XP otorgada: " + m.generarExperienciaAlMorir());
 
-            switch(evento)
+            if (m instanceof valstrax)
             {
-                case 0:
-                    System.out.println("[ACCIÓN: ATAQUE SORPRESA]");
-                    m.recibirDanio(30.0f);
-                    break;
-                case 1:
-                    System.out.println("[ACCIÓN: POCIÓN DE VIDA]");
-                    m.recibirCura(15.0f);
-                    break;
-                case 2:
-                    System.out.println("[ACCIÓN: ENTRENAMIENTO]");
-                    m.aumentoNivel();
-                    break;
+                valstrax v = (valstrax) m;
+                System.out.println("Poder de postura actual: " + v.toString());
             }
+            else if (m instanceof zombie)
+            {
+                System.out.println("Nota: Este es un enemigo de tipo básico.");
+            }
+
+            System.out.println("------------------------------------");
         }
     }
 }

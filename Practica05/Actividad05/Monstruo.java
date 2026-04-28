@@ -1,6 +1,6 @@
 package Actividad05;
 
-public class Monstruo
+public abstract class Monstruo implements Interactuable
 {
     //Mis privados
     protected String nombre;
@@ -88,4 +88,20 @@ public class Monstruo
     {
         setNivel(this.nivel + 1);
     }
+
+    // Definir la estructura de un ataque
+    public final void realizarAccionDeCombate()
+    {
+        System.out.println("--- Iniciando turno de " + nombre + " ---");
+        prepararAtaque();
+
+        // Aquí usamos la interfaz que ya creaste
+        float multi = calcularMultiplicadorDanio();
+        System.out.println("Multiplicador aplicado: " + multi);
+
+        finalizarAccion();
+    }
+
+    public abstract void prepararAtaque(); //abstracto
+    public abstract void finalizarAccion(); //abstracto
 }

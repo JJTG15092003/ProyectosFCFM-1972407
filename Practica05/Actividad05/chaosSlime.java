@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class chaosSlime extends organico implements Interactuable
 {
+    float vidamax = this.vida;
     Random random = new Random();
     public chaosSlime(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
     {
@@ -43,7 +44,7 @@ public class chaosSlime extends organico implements Interactuable
     @Override
     public float calcularMultiplicadorDanio()
     {
-        return (this.vida >= (this.vida * 0.50f) ? 2.5f : 1.75f);
+        return (this.vida >= (this.vidamax * 0.50f) ? 2.5f : 1.75f);
     }
 
     @Override
