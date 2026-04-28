@@ -20,6 +20,41 @@ public class chaosSlime extends organico implements Interactuable
         super.recibirDanio(danioFinal);
         System.out.println(getNombre() + " cuenta ahora con " + vida + " puntos de salud!");
     }
+
+    // Sobrecarga 2: Daño Elemental
+    public void recibirDanio(float cantidad, String tipoElemental)
+    {
+        if (tipoElemental.equalsIgnoreCase("Fuego"))
+        {
+            System.out.println("¡PERO NO RESULTA EFECTO! \n[Unique Skill activate: Proteccion elemental absoluta]");
+            float multiplicador = 0.5f * random.nextFloat();
+            float danioFinal = cantidad * multiplicador;
+            super.recibirDanio(danioFinal);
+        } else
+        {
+            float multiplicador = 0.5f * random.nextFloat();
+            float danioFinal = cantidad * multiplicador;
+            super.recibirDanio(danioFinal);
+        }
+    }
+
+    // Sobrecarga 3: Daño Crítico
+    public void recibirDanio(float cantidad, boolean esCritico)
+    {
+        if (esCritico)
+        {
+            System.out.println("¡La herida se ha cerrado instantaneamente! \n[Unique Skill activate: Proteccion anti criticos]");
+            float multiplicador = 0.5f * random.nextFloat();
+            float danioFinal = cantidad * multiplicador;
+            super.recibirDanio(danioFinal);
+        } else
+        {
+            float multiplicador = 0.5f * random.nextFloat();
+            float danioFinal = cantidad * multiplicador;
+            super.recibirDanio(danioFinal);
+        }
+    }
+
     @Override
     public void recibirCura(float vida)
     {
@@ -50,6 +85,24 @@ public class chaosSlime extends organico implements Interactuable
     @Override
     public int generarExperienciaAlMorir()
     {
-        return 0;
+        return 1000000;
+    }
+
+    //Ataques
+    @Override
+    public void prepararAtaque()
+    {
+        System.out.println(getNombre() + " Prepara su conjunto de habilidades unicas contra el jugador!");
+        if (this.vida < 1000)
+        {
+            System.out.println("Ha cargado contra el jugador!");
+        }
+    }
+
+    //Mi metodo abstracto
+    @Override
+    public void finalizarAccion()
+    {
+        System.out.println(getNombre() + " Regresa rebotando hacia su posicion anterior...");
     }
 }

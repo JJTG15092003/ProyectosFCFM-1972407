@@ -25,6 +25,76 @@ public class lesserLich extends noMuerto implements Interactuable
         }
     }
 
+    // Sobrecarga 2: Daño Elemental
+    public void recibirDanio(float cantidad, String tipoElemental)
+    {
+        if (tipoElemental.equalsIgnoreCase("Fuego"))
+        {
+            System.out.println("¡El fuego calcina la piel necrotica del lich!");
+            if(almasAtrapadas > 0)
+            {
+                System.out.println("El escudo de almas de " + getNombre() + " lo protege del daño!");
+                almasAtrapadas = almasAtrapadas - 3;
+
+            }
+            else
+            {
+                System.out.println("El cuerpo espectral de " + getNombre() + " comienza a desaparecer!");
+                super.recibirDanio(cantidad * 1.5f);
+                System.out.println(getNombre() + " cuenta ahora con " + vida + " puntos de salud!");
+            }
+        } else
+        {
+            if(almasAtrapadas > 0)
+            {
+                System.out.println("El escudo de almas de " + getNombre() + " lo protege del daño!");
+                almasAtrapadas = almasAtrapadas - 1;
+
+            }
+            else
+            {
+                System.out.println("El cuerpo espectral de " + getNombre() + " comienza a desaparecer!");
+                super.recibirDanio(cantidad);
+                System.out.println(getNombre() + " cuenta ahora con " + vida + " puntos de salud!");
+            }
+        }
+    }
+
+    // Sobrecarga 3: Daño Crítico
+    public void recibirDanio(float cantidad, boolean esCritico)
+    {
+        if (esCritico)
+        {
+            System.out.println("¡HERIDA ABIERTA EN LOS BRAZOS!");
+            if(almasAtrapadas > 0)
+            {
+                System.out.println("El escudo de almas de " + getNombre() + " lo protege del daño!");
+                almasAtrapadas = almasAtrapadas - 3;
+
+            }
+            else
+            {
+                System.out.println("El cuerpo espectral de " + getNombre() + " comienza a desaparecer!");
+                super.recibirDanio(cantidad * 2.5f);
+                System.out.println(getNombre() + " cuenta ahora con " + vida + " puntos de salud!");
+            }
+        } else
+        {
+            if(almasAtrapadas > 0)
+            {
+                System.out.println("El escudo de almas de " + getNombre() + " lo protege del daño!");
+                almasAtrapadas = almasAtrapadas - 1;
+
+            }
+            else
+            {
+                System.out.println("El cuerpo espectral de " + getNombre() + " comienza a desaparecer!");
+                super.recibirDanio(cantidad);
+                System.out.println(getNombre() + " cuenta ahora con " + vida + " puntos de salud!");
+            }
+        }
+    }
+
     @Override
     public void aumentoNivel()
     {
@@ -52,5 +122,23 @@ public class lesserLich extends noMuerto implements Interactuable
     public int generarExperienciaAlMorir()
     {
         return (this.nivel) * 2;
+    }
+
+    //Ataques
+    @Override
+    public void prepararAtaque()
+    {
+        System.out.println(getNombre() + " Prepara sus hechizos desde su grimorio");
+        if (this.vida < 1000)
+        {
+            System.out.println("Ha cargado contra el jugador!");
+        }
+    }
+
+    //Mi metodo abstracto
+    @Override
+    public void finalizarAccion()
+    {
+        System.out.println(getNombre() + " Guarda su grimorio en su bolso necrotico");
     }
 }

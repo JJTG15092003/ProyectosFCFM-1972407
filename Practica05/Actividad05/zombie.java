@@ -16,9 +16,9 @@ public class zombie extends noMuerto implements Interactuable
     // Sobrecarga 2: Daño Elemental
     public void recibirDanio(float cantidad, String tipoElemental)
     {
-        if (tipoElemental.equalsIgnoreCase("Agua"))
+        if (tipoElemental.equalsIgnoreCase("Fuego"))
         {
-            System.out.println("¡El agua debilita la energía de Valstrax!");
+            System.out.println("¡El fuego calcina la piel necrotica del zombie!");
             this.recibirDanio(cantidad * 1.5f); // Recibe más daño
         } else
         {
@@ -31,7 +31,7 @@ public class zombie extends noMuerto implements Interactuable
     {
         if (esCritico)
         {
-            System.out.println("¡HERIDA ABIERTA EN LAS ALAS!");
+            System.out.println("¡HERIDA ABIERTA EN LOS BRAZOS!");
             this.recibirDanio(cantidad * 2.0f);
         } else
         {

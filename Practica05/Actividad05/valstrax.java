@@ -28,6 +28,32 @@ public class valstrax extends organico implements Interactuable
         }
     }
 
+    // Sobrecarga 2: Daño Elemental
+    public void recibirDanio(float cantidad, String tipoElemental)
+    {
+        if (tipoElemental.equalsIgnoreCase("Agua"))
+        {
+            System.out.println("¡El agua debilita la energía dragón del Valstrax!");
+            this.recibirDanio(cantidad * 1.5f); // Recibe más daño
+        } else
+        {
+            this.recibirDanio(cantidad);
+        }
+    }
+
+    // Sobrecarga 3: Daño Crítico
+    public void recibirDanio(float cantidad, boolean esCritico)
+    {
+        if (esCritico)
+        {
+            System.out.println("¡GOLPE CRÍTICO EN LAS ALAS!");
+            this.recibirDanio(cantidad * 2.0f);
+        } else
+        {
+            this.recibirDanio(cantidad);
+        }
+    }
+
     @Override
     public void recibirCura(float vida)
     {
@@ -61,7 +87,7 @@ public class valstrax extends organico implements Interactuable
     @Override
     public int generarExperienciaAlMorir()
     {
-        return 0;
+        return 5000;
     }
 
     @Override
@@ -74,7 +100,6 @@ public class valstrax extends organico implements Interactuable
         }
     }
 
-    //Mi metodo abstracto
     @Override
     public void finalizarAccion()
     {
