@@ -95,7 +95,6 @@ public abstract class Monstruo implements Interactuable
         System.out.println("--- Iniciando turno de " + nombre + " ---");
         prepararAtaque();
 
-        // Aquí usamos la interfaz que ya creaste
         float multi = calcularMultiplicadorDanio();
         System.out.println("Multiplicador aplicado: " + multi);
 
