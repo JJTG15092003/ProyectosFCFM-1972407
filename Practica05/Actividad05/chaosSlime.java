@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class chaosSlime extends organico implements Interactuable
 {
-    float vidamax = this.vida;
     Random random = new Random();
     public chaosSlime(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
     {
         super(nombre, vida, nivel, recompensa, esJefe);
+        float vidamax = this.vida;
     }
 
     @Override

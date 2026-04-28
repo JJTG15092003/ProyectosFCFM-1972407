@@ -41,27 +41,30 @@ public class Main
         System.out.println("\n\n\n");
         //Generador de eventos aleatorios para probar que funcione
 
-        System.out.println("=== SIMULACIÓN DE COMBATE FINAL ===");
+        System.out.println("=== SIMULACION DE COMBATE ===");
 
         for (Monstruo m : miBestiario.getLista())
         {
-            // 1. Llamada al Template Method
             m.realizarAccionDeCombate();
 
-            // 2. Uso de la Interfaz
-            System.out.println("XP otorgada: " + m.generarExperienciaAlMorir());
+            System.out.println("Experiencia generada: " + m.generarExperienciaAlMorir());
+
+            m.recibirDanio(10.0f);
 
             if (m instanceof valstrax)
             {
                 valstrax v = (valstrax) m;
-                System.out.println("Poder de postura actual: " + v.toString());
+                v.recibirDanio(50.0f, "Agua"); // Sobrecarga 2 (Elemental)
+                v.recibirDanio(100.0f, true);   // Sobrecarga 3 (Crítico)
+                System.out.println("Estado del Dragón: " + v.toString());
             }
             else if (m instanceof zombie)
             {
-                System.out.println("Nota: Este es un enemigo de tipo básico.");
+                zombie z = (zombie) m;
+                z.recibirDanio(20.0f, "Fuego"); // Sobrecarga de mi zombie
             }
 
-            System.out.println("------------------------------------");
+            System.out.println("----------------------------------------------");
         }
     }
 }
