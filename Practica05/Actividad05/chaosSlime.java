@@ -2,7 +2,7 @@ package Actividad05;
 
 import java.util.Random;
 
-public class chaosSlime extends organico
+public class chaosSlime extends organico implements Interactuable
 {
     Random random = new Random();
     public chaosSlime(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
@@ -38,5 +38,17 @@ public class chaosSlime extends organico
     public String toString()
     {
         return super.toString() + "\n > [Estado: Núcleo inestable]";
+    }
+
+    @Override
+    public float calcularMultiplicadorDanio()
+    {
+        return (this.vida >= (this.vida * 0.50f) ? 2.5f : 1.75f);
+    }
+
+    @Override
+    public int generarExperienciaAlMorir()
+    {
+        return 0;
     }
 }

@@ -1,6 +1,6 @@
 package Actividad05;
 
-public class valstrax extends organico
+public class valstrax extends organico implements Interactuable
 {
     private float probAmbush = 0;
     private int postura = 10;
@@ -48,5 +48,17 @@ public class valstrax extends organico
         String infoBase = super.toString();
         return infoBase + "\n > Poder Espectral: " + postura + " almas en reserva" +
                 "\n > Estado: " + (postura > 0 ? "[POSTURA DEFENSIVA ACTIVA]" : "[POSTURA DEFENSIVA AUSENTE]");
+    }
+
+    @Override
+    public float calcularMultiplicadorDanio()
+    {
+        return (this.vida < 1000) ? 2.5f : 1.5f;
+    }
+
+    @Override
+    public int generarExperienciaAlMorir()
+    {
+        return 0;
     }
 }

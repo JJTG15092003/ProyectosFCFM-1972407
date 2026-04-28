@@ -1,6 +1,6 @@
 package Actividad05;
 
-public class zombie extends noMuerto
+public class zombie extends noMuerto implements Interactuable
 {
     public zombie(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
     {
@@ -27,5 +27,18 @@ public class zombie extends noMuerto
     {
         String infoBase = super.toString();
         return infoBase + "\n > Su cuerpo tambalea, su mirada ciega recae sobre ti dandote un escalofrio por la espalda...";
+    }
+
+    //Mi vinculo a Interactuable.java
+    @Override
+    public float calcularMultiplicadorDanio()
+    {
+        return 1.2f;
+    }
+
+    @Override
+    public int generarExperienciaAlMorir()
+    {
+        return 0;
     }
 }

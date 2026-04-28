@@ -1,6 +1,6 @@
 package Actividad05;
 
-public class lesserLich extends noMuerto
+public class lesserLich extends noMuerto implements Interactuable
 {
     private int almasAtrapadas = 0;
     public lesserLich(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
@@ -40,5 +40,17 @@ public class lesserLich extends noMuerto
         String infoBase = super.toString();
         return infoBase + "\n > Poder Espectral: " + almasAtrapadas + " almas en reserva" +
                 "\n > Estado: " + (almasAtrapadas > 0 ? "[ESCUDO ACTIVADO]" : "[ESCUDO DESACTIVADO]");
+    }
+
+    @Override
+    public float calcularMultiplicadorDanio()
+    {
+        return (this.almasAtrapadas >= 5) ? 1.7f : 1f;
+    }
+
+    @Override
+    public int generarExperienciaAlMorir()
+    {
+        return (this.nivel) * 2;
     }
 }
