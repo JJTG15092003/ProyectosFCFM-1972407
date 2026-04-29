@@ -1,6 +1,6 @@
 package Actividad06;
 
-public class automata extends automataRobot implements EsqueletoComportamiento
+public class automata extends automataRobot implements EsqueletoComportamiento, Accion, Conversador
 {
     public automata(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
     {
@@ -63,33 +63,67 @@ public class automata extends automataRobot implements EsqueletoComportamiento
         System.out.println(getNombre() + " cuenta ahora con " + vida + " puntos de salud!");
     }
 
+    //Comportamientos de conversacion
+    @Override
+    public String persuadir()
+    {
+        return getNombre() + " El constructo realiza un gesto teatral de apariencia apasible";
+    }
+
+    @Override
+    public String intimidar()
+    {
+        return getNombre() + " Da un paso hacia atras con un gesto de miedo.\nSus brazos mecanicos se tensan...";
+    }
+
+    @Override
+    public String domesticar()
+    {
+        return getNombre() + " Luce mucho mas apacible, su pose de combate flaquea. Quizas tengas una oportunidad!";
+    }
+
+    //Acciones de combate
+    @Override
+    public String atacar()
+    {
+        return getNombre() + " se lanza contra el jugador balanceando su cuchillo de carnicero gigante!";
+    }
+
+    @Override
+    public String bloquearAtaque()
+    {
+        return getNombre() + " utiliza su cuchillo gigante para bloquear el ataque!";
+    }
+
+    @Override
+    public String huidaTactica()
+    {
+        return getNombre() + " sale corriendo del lugar!";
+    }
+
+    //Comportamiento basico
     @Override
     public float calcularMultiplicadorDanio()
     {
-        return 1;
+        return (this.vida < 1000) ? 2.5f : 1.5f;
     }
 
     @Override
     public int generarExperienciaAlMorir()
     {
-        return 55;
+        return 5000;
     }
 
-    //Ataques
+    //Metodos abstractos
     @Override
     public void prepararAtaque()
     {
-        System.out.println(getNombre() + " Reposiciona sus brazos mecanicos en postura de combate...");
-        if (this.vida < 1000)
-        {
-            System.out.println("Ha cargado contra el jugador!");
-        }
+        System.out.println(getNombre() + " acumula energía dragón...");
     }
 
-    //Mi metodo abstracto
     @Override
     public void finalizarAccion()
     {
-        System.out.println(getNombre() + " regresa a su sitio tambaleante");
+        System.out.println(getNombre() + " aterriza dejando una estela roja.");
     }
 }

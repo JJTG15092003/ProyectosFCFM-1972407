@@ -1,6 +1,6 @@
 package Actividad06;
 
-public class lesserLich extends noMuerto implements EsqueletoComportamiento
+public class lesserLich extends noMuerto implements EsqueletoComportamiento, Accion
 {
     private int almasAtrapadas = 0;
     public lesserLich(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
@@ -110,6 +110,19 @@ public class lesserLich extends noMuerto implements EsqueletoComportamiento
         String infoBase = super.toString();
         return infoBase + "\n > Poder Espectral: " + almasAtrapadas + " almas en reserva" +
                 "\n > Estado: " + (almasAtrapadas > 0 ? "[ESCUDO ACTIVADO]" : "[ESCUDO DESACTIVADO]");
+    }
+
+    //Acciones de combate
+    @Override
+    public String atacar()
+    {
+        return getNombre() + " lanza un hechizo de daño plano!";
+    }
+
+    @Override
+    public String bloquearAtaque()
+    {
+        return getNombre() + " su escudo de energia logra cubrirlo a tiempo!";
     }
 
     @Override

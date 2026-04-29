@@ -1,6 +1,6 @@
 package Actividad06;
 
-public class zombie extends noMuerto implements EsqueletoComportamiento
+public class zombie extends noMuerto implements EsqueletoComportamiento, Accion
 {
     public zombie(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
     {
@@ -51,6 +51,13 @@ public class zombie extends noMuerto implements EsqueletoComportamiento
     {
         String infoBase = super.toString();
         return infoBase + "\n > Su cuerpo tambalea, su mirada ciega recae sobre ti dandote un escalofrio por la espalda...";
+    }
+
+    //Acciones de combate
+    @Override
+    public String atacar()
+    {
+        return getNombre() + " se abalanza contra el jugador con un grito desgarrador!";
     }
 
     @Override

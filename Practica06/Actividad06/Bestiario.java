@@ -30,10 +30,10 @@ public class Bestiario
         }
     }
 
-    //Interaccion de conversacion
+    //Conversador
     public void intentarDiplomacia()
     {
-        System.out.println("\n--- Iniciando Fase de Diplomacia ---");
+        System.out.println("\n--- Iniciando Diplomacia ---");
         for (Monstruo m : listaMonstruos)
         {
             if (m instanceof Conversador)
@@ -47,16 +47,74 @@ public class Bestiario
         }
     }
 
-    //Fase de combate
-    public void ejecutarFaseDeAccion()
+    public void intentarDomesticacion()
     {
-        System.out.println("\n--- Iniciando Fase de Acción de Combate ---");
+        System.out.println("\n--- Iniciando Domesticación");
+        for (Monstruo m : listaMonstruos)
+        {
+            if (m instanceof Conversador)
+            {
+                Conversador c = (Conversador) m;
+                System.out.println(m.getNombre() + c.domesticar());
+            } else
+            {
+                System.out.println(m.getNombre() + " parece evasivo a tus intentos de domesticar.");
+            }
+        }
+    }
+
+    public void intentarIntimidar()
+    {
+        System.out.println("\n--- Iniciando Intimidación");
+        for (Monstruo m : listaMonstruos)
+        {
+            if (m instanceof Conversador)
+            {
+                Conversador c = (Conversador) m;
+                System.out.println(m.getNombre() + c.intimidar());
+            } else
+            {
+                System.out.println(m.getNombre() + " no muestra signos de estar intimidado.");
+            }
+        }
+    }
+
+    //Accion
+    public void ejecutarAtaque()
+    {
+        System.out.println("\n--- Atacando ---");
         for (Monstruo m : listaMonstruos)
         {
             if (m instanceof Accion)
             {
                 Accion a = (Accion) m;
                 System.out.println(a.atacar());
+            }
+        }
+    }
+
+    public void ejecutarBloqueo()
+    {
+        System.out.println("\n--- Bloqueando ataque ---");
+        for (Monstruo m : listaMonstruos)
+        {
+            if (m instanceof Accion)
+            {
+                Accion a = (Accion) m;
+                System.out.println(a.bloquearAtaque());
+            }
+        }
+    }
+
+    public void ejecutarHuida()
+    {
+        System.out.println("\n--- Huyendo ---");
+        for (Monstruo m : listaMonstruos)
+        {
+            if (m instanceof Accion)
+            {
+                Accion a = (Accion) m;
+                System.out.println(a.huidaTactica());
             }
         }
     }

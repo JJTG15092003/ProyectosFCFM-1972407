@@ -2,7 +2,7 @@ package Actividad06;
 
 import java.util.Random;
 
-public class chaosSlime extends organico implements EsqueletoComportamiento
+public class chaosSlime extends organico implements EsqueletoComportamiento, Accion, Conversador
 {
     float vidamax;
     Random random = new Random();
@@ -75,6 +75,26 @@ public class chaosSlime extends organico implements EsqueletoComportamiento
     public String toString()
     {
         return super.toString() + "\n > [Estado: Núcleo inestable]";
+    }
+
+    //Comportamientos de conversacion
+    @Override
+    public String persuadir()
+    {
+        return getNombre() + " se detiene a pensar en tus palabras.\nContinua, puedes bajar su guardia!";
+    }
+
+    //Acciones de combate
+    @Override
+    public String atacar()
+    {
+        return getNombre() + " empieza a cargar su ataque devorador de materia!";
+    }
+
+    @Override
+    public String bloquearAtaque()
+    {
+        return getNombre() + " absorbe el daño con su cuerpo gelatinoso!";
     }
 
     @Override
