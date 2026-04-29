@@ -5,7 +5,6 @@ public class Main
 {
     public static void main(String[] args)
     {
-        Random random = new Random();
         //Contenedor de monstruos
         Bestiario miBestiario = new Bestiario();
 
@@ -39,32 +38,23 @@ public class Main
         miBestiario.mostrarTodo();
 
         System.out.println("\n\n\n");
-        //Generador de eventos aleatorios para probar que funcione
 
         System.out.println("=== SIMULACION DE COMBATE ===");
 
+        //Diplomacia
+        miBestiario.intentarDiplomacia();
+        //Intimidacion
+        miBestiario.intentarIntimidar();
+        //Accion
+        miBestiario.ejecutarAtaque();
+
+        //Demostracion
+        System.out.println("\n--- Prueba de Métodos de Clase Base (Monstruo) ---");
         for (Monstruo m : miBestiario.getLista())
         {
-            m.realizarAccionDeCombate();
-
-            System.out.println("Experiencia generada: " + m.generarExperienciaAlMorir());
-
-            m.recibirDanio(10.0f);
-
-            if (m instanceof valstrax)
-            {
-                valstrax v = (valstrax) m;
-                v.recibirDanio(50.0f, "Agua"); // Sobrecarga 2 (Elemental)
-                v.recibirDanio(100.0f, true);   // Sobrecarga 3 (Crítico)
-                System.out.println("Estado del Dragón: " + v.toString());
-            }
-            else if (m instanceof zombie)
-            {
-                zombie z = (zombie) m;
-                z.recibirDanio(20.0f, "Fuego"); // Sobrecarga de mi zombie
-            }
-
-            System.out.println("----------------------------------------------");
+            m.prepararAtaque(); // Método abstracto implementado
+            m.recibirDanio(50); // Método concreto de la clase base
+            System.out.println(m.getNombre() + " ahora tiene " + m.vida + " HP.");
         }
     }
 }

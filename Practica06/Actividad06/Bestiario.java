@@ -39,7 +39,7 @@ public class Bestiario
             if (m instanceof Conversador)
             {
                 Conversador c = (Conversador) m;
-                System.out.println(m.getNombre() + " responde: " + c.persuadir());
+                System.out.println(c.persuadir());
             } else
             {
                 System.out.println(m.getNombre() + " no parece interesado en hablar.");
@@ -55,7 +55,7 @@ public class Bestiario
             if (m instanceof Conversador)
             {
                 Conversador c = (Conversador) m;
-                System.out.println(m.getNombre() + c.domesticar());
+                System.out.println(c.domesticar());
             } else
             {
                 System.out.println(m.getNombre() + " parece evasivo a tus intentos de domesticar.");
@@ -71,7 +71,7 @@ public class Bestiario
             if (m instanceof Conversador)
             {
                 Conversador c = (Conversador) m;
-                System.out.println(m.getNombre() + c.intimidar());
+                System.out.println(c.intimidar());
             } else
             {
                 System.out.println(m.getNombre() + " no muestra signos de estar intimidado.");
