@@ -1,9 +1,13 @@
 package Actividad07;
 
+import Excepciones.AtributoInvalidoException;
+import Excepciones.RecompensaIlegalException;
+
 public class lesserLich extends noMuerto implements EsqueletoComportamiento, Accion
 {
     private int almasAtrapadas = 0;
     public lesserLich(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
+            throws AtributoInvalidoException, RecompensaIlegalException
     {
         super(nombre, vida, nivel, recompensa, esJefe);
     }
@@ -96,7 +100,7 @@ public class lesserLich extends noMuerto implements EsqueletoComportamiento, Acc
     }
 
     @Override
-    public void aumentoNivel()
+    public void aumentoNivel() throws AtributoInvalidoException
     {
         System.out.println(getNombre() + " aumenta de nivel tras su enfrentamiento!");
         super.aumentoNivel();

@@ -12,14 +12,14 @@ public abstract class Monstruo implements EsqueletoComportamiento
     protected boolean esJefe;
 
     //Mis constructores
-    public Monstruo(String nombre, String tipo, float vida, int nivel, Botin recompensa, boolean esJefe)
+    public Monstruo(String nombre, String tipo, float vida, int nivel, Botin recompensa, boolean esJefe) throws AtributoInvalidoException, RecompensaIlegalException
     {
         this.nombre = nombre;
         this.tipo = tipo;
-        this.vida = vida;
-        this.nivel = nivel;
-        this.recompensa = recompensa;
         this.esJefe = esJefe;
+        setNivel(nivel);
+        setRecompensa(recompensa);
+        setVida(vida);
     }
 
     //Mis setter

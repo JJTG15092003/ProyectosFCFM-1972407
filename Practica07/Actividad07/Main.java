@@ -14,18 +14,35 @@ public class Main
         Botin dropComun = new Botin("Trapo sucio", 2);
         Botin dropElder = new Botin("Núcleo de Valstrax", 8000);
 
-        //Necesitamos... MONSTRUOS
-        lesserLich m1 = new lesserLich("Lesser lich", 150, 45, dropLich, true);
-        zombie m2 = new zombie("Zombi común", 25, 5, dropComun, false);
-        chaosSlime m3 = new chaosSlime("Chaos Demon Lord GodLike Slime", 75000000, 3000, dropSlime, true);
-        valstrax m4 = new valstrax("Drágon anciano Valstrax", 75000, 75, dropElder, true);
-        automata m5 = new automata("Sirvienta automata de porcelana", 150, 14, dropComun, false);
+        //Ahora tengo que meter a todas las creaciones de mis monstruos en el try para que no exista posibilidad de error
+        try
+        {
+            //Necesitamos... MONSTRUOS
+            lesserLich m1 = new lesserLich("Lesser lich", 150, 45, dropLich, true);
+            zombie m2 = new zombie("Zombi común", 25, 5, dropComun, false);
+            chaosSlime m3 = new chaosSlime("Chaos Demon Lord GodLike Slime", 75000000, 3000, dropSlime, true);
+            valstrax m4 = new valstrax("Drágon anciano Valstrax", 75000, 75, dropElder, true);
+            automata m5 = new automata("Sirvienta automata de porcelana", 150, 14, dropComun, false);
 
-        miBestiario.agregarMonstruo(m1);
-        miBestiario.agregarMonstruo(m2);
-        miBestiario.agregarMonstruo(m3);
-        miBestiario.agregarMonstruo(m4);
-        miBestiario.agregarMonstruo(m5);
+            //Para probar que todo va bien, voy a crear un Valstrax que a proposito tiene datos incorrectos
+            valstrax mErroneo = new valstrax("Valstrax Fallido", -10, 0, null, true);
+
+            miBestiario.agregarMonstruo(m1);
+            miBestiario.agregarMonstruo(m2);
+            miBestiario.agregarMonstruo(m3);
+            miBestiario.agregarMonstruo(m4);
+            miBestiario.agregarMonstruo(m5);
+            miBestiario.agregarMonstruo(mErroneo);
+        }
+        catch (AtributoInvalidoException e)
+        {
+            System.out.println("Capturado error de atributo: " + e.getMessage());
+            System.out.println("Valor que causó el fallo: " + e.getValorErroneo());
+            miBestiario.registrarError(e);
+        } catch (BestiarioException e)
+        {
+            miBestiario.registrarError(e);
+        }
 
         for(Monstruo m : miBestiario.getLista())
         {

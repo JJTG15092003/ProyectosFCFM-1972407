@@ -1,5 +1,8 @@
 package Actividad07;
 
+import Excepciones.AtributoInvalidoException;
+import Excepciones.RecompensaIlegalException;
+
 import java.util.Random;
 
 public class chaosSlime extends organico implements EsqueletoComportamiento, Accion, Conversador
@@ -7,6 +10,7 @@ public class chaosSlime extends organico implements EsqueletoComportamiento, Acc
     float vidamax;
     Random random = new Random();
     public chaosSlime(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
+            throws AtributoInvalidoException, RecompensaIlegalException
     {
         super(nombre, vida, nivel, recompensa, esJefe);
         this.vidamax = vida;

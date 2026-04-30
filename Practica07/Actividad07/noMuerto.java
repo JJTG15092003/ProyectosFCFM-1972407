@@ -1,9 +1,11 @@
 package Actividad07;
 
+import Excepciones.AtributoInvalidoException;
+import Excepciones.RecompensaIlegalException;
+
 public class noMuerto extends Monstruo implements EsqueletoComportamiento
 {
-    public noMuerto(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
-    {
+    public noMuerto(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe) throws AtributoInvalidoException, RecompensaIlegalException {
         super(nombre, "No-muerto", vida, nivel, recompensa, esJefe);
     }
 

@@ -1,5 +1,9 @@
 package Actividad07;
-
+import Excepciones.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Bestiario
@@ -27,6 +31,32 @@ public class Bestiario
         for(Monstruo m : listaMonstruos)
         {
             System.out.println(m);
+        }
+    }
+
+    //guardar los errores
+    public void registrarError(Exception e)
+    {
+        // try-with-resources asegura que el FileWriter se cierre solo
+        // wow no sabia ^
+        try (FileWriter fw = new FileWriter("errores_bestiario.log", true);
+             PrintWriter pw = new PrintWriter(fw))
+        {
+
+            pw.println("=== ERROR DETECTADO ===");
+            pw.println("Fecha: " + java.time.LocalDateTime.now());
+            pw.println("Mensaje: " + e.getMessage());
+
+            if (e instanceof BestiarioException)
+            {
+                pw.println("Timestamp original: " + ((BestiarioException) e).getTimestamp());
+            }
+
+            pw.println("-----------------------\n");
+
+        } catch (IOException ioException)
+        {
+            System.out.println("Error fatal: No se pudo escribir en el log.");
         }
     }
 

@@ -1,9 +1,11 @@
 package Actividad07;
 
+import Excepciones.AtributoInvalidoException;
+import Excepciones.RecompensaIlegalException;
+
 public class automataRobot extends Monstruo implements EsqueletoComportamiento
 {
-    public automataRobot(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
-    {
+    public automataRobot(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe) throws AtributoInvalidoException, RecompensaIlegalException {
         super(nombre, "Constructo autónomo", vida, nivel, recompensa, esJefe);
     }
 

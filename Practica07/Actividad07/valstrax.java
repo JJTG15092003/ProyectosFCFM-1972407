@@ -1,9 +1,12 @@
 package Actividad07;
+import Excepciones.*;
+
 
 public class valstrax extends organico implements EsqueletoComportamiento, Accion
 {
     private int postura = 10;
     public valstrax(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
+            throws AtributoInvalidoException, RecompensaIlegalException
     {
         super(nombre, vida, nivel, recompensa, esJefe);
     }
@@ -61,7 +64,7 @@ public class valstrax extends organico implements EsqueletoComportamiento, Accio
         System.out.println(getNombre() + " ahora tiene " + vida + " puntos de salud!");
     }
     @Override
-    public void aumentoNivel()
+    public void aumentoNivel() throws AtributoInvalidoException
     {
         System.out.println(getNombre() + " se ha vuelto mas fuerte! Ha subido de nivel!");
         super.aumentoNivel();

@@ -1,8 +1,12 @@
 package Actividad07;
 
+import Excepciones.AtributoInvalidoException;
+import Excepciones.RecompensaIlegalException;
+
 public class automata extends automataRobot implements EsqueletoComportamiento, Accion, Conversador
 {
     public automata(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
+            throws AtributoInvalidoException, RecompensaIlegalException
     {
         super(nombre, vida, nivel, recompensa, esJefe);
     }
@@ -55,7 +59,7 @@ public class automata extends automataRobot implements EsqueletoComportamiento, 
         return super.toString() + "\n > El cuerpo de " + getNombre() + " tambalea con cada intento de dar un paso...";
     }
     @Override
-    public void aumentoNivel()
+    public void aumentoNivel() throws AtributoInvalidoException
     {
         System.out.println(getNombre() + " sube de nivel! y se logra reconstruir!");
         super.aumentoNivel();

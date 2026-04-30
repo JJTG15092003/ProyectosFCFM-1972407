@@ -1,8 +1,12 @@
 package Actividad07;
 
+import Excepciones.AtributoInvalidoException;
+import Excepciones.RecompensaIlegalException;
+
 public class zombie extends noMuerto implements EsqueletoComportamiento, Accion
 {
     public zombie(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
+            throws AtributoInvalidoException, RecompensaIlegalException
     {
         super(nombre, vida, nivel, recompensa, esJefe);
     }
@@ -40,7 +44,7 @@ public class zombie extends noMuerto implements EsqueletoComportamiento, Accion
     }
 
     @Override
-    public void aumentoNivel()
+    public void aumentoNivel() throws AtributoInvalidoException
     {
         System.out.println(getNombre() + " se ha fortalezido gracias al combate!");
         super.aumentoNivel();

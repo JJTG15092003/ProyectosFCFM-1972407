@@ -1,9 +1,11 @@
 package Actividad07;
 
+import Excepciones.AtributoInvalidoException;
+import Excepciones.RecompensaIlegalException;
+
 public class organico extends Monstruo implements EsqueletoComportamiento
 {
-    public organico(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
-    {
+    public organico(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe) throws AtributoInvalidoException, RecompensaIlegalException {
         super(nombre, "Orgánico", vida, nivel, recompensa, esJefe);
     }
 
