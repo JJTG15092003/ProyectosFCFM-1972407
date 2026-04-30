@@ -2,15 +2,8 @@ package Excepciones;
 
 public class AccionInvalidaException extends BestiarioException
 {
-    String accion;
-    public AccionInvalidaException(String mensaje, String V)
+    public AccionInvalidaException(String mensaje)
     {
         super(mensaje);
-        this.accion = V;
-    }
-
-    public String getAccionInvalida()
-    {
-        return accion;
     }
 }

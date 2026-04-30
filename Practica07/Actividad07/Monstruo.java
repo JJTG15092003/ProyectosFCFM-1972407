@@ -23,37 +23,29 @@ public abstract class Monstruo implements EsqueletoComportamiento
     }
 
     //Mis setter
-    public void setRecompensa(Botin recompensa)
+    public void setRecompensa(Botin recompensa) throws RecompensaIlegalException
     {
-        // REGLA DE VALIDACIÓN: Un JEFE no puede tener una recompensa vacía (null)
         if (this.esJefe && recompensa == null)
         {
-            System.out.println("¡Error! Un Jefe siempre debe soltar algo valioso.");
-        } else
-        {
+            throw new RecompensaIlegalException("¡Error! Un Jefe no puede tener un botin nulo!", this.recompensa);
+        }
             this.recompensa = recompensa;
-        }
     }
-    public void setNivel(int nivel)
+    public void setNivel(int nivel) throws AtributoInvalidoException
     {
-        if (nivel >= 1)
+        if (nivel <= 0)
         {
+            throw new AtributoInvalidoException("El nivel no puede ser inferior o igual a cero!", this.nivel);
+        }
             this.nivel = nivel;
-        } else
-        {
-            System.out.println("Nivel fuera de rango!");
-        }
     }
-    public void setVida(float vida)
+    public void setVida(float vida) throws AtributoInvalidoException
     {
-        if (vida >= 0)
+        if (vida <= 0)
         {
+            throw new AtributoInvalidoException("Vida no puede ser inferior a 1!", this.vida);
+        }
             this.vida = vida;
-        }
-        else
-        {
-            System.out.println("Vida no puede ser inferior a 1!");
-        }
     }
 
     //Mi toString
@@ -85,7 +77,7 @@ public abstract class Monstruo implements EsqueletoComportamiento
     {
         this.vida -= cantidad;
     }
-    public void aumentoNivel()
+    public void aumentoNivel() throws AtributoInvalidoException
     {
         setNivel(this.nivel + 1);
     }

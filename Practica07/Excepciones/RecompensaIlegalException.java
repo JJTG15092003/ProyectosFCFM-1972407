@@ -1,16 +1,17 @@
 package Excepciones;
+import Actividad07.Botin;
 
 public class RecompensaIlegalException extends BestiarioException
 {
-    String Recompensa;
-    public RecompensaIlegalException(String mensaje, String V)
+    private Botin miBotin;
+    public RecompensaIlegalException(String mensaje, Botin botinN)
     {
         super(mensaje);
-        this.Recompensa = V;
+        this.miBotin = botinN;
     }
 
-    public String getRecompensaInvalida()
+    public Botin getRecompensaIlegal()
     {
-        return Recompensa;
+        return miBotin;
     }
 }
