@@ -1,4 +1,5 @@
 package Actividad07;
+import Excepciones.*;
 
 public abstract class Monstruo implements EsqueletoComportamiento
 {
