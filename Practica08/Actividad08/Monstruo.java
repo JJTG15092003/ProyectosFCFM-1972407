@@ -1,9 +1,8 @@
 package Actividad08;
-
 import ExcepcionesAct8.AtributoInvalidoException;
 import ExcepcionesAct8.RecompensaIlegalException;
 
-public abstract class Monstruo implements EsqueletoComportamiento
+public abstract class Monstruo implements EsqueletoComportamiento,Comparable<Monstruo>
 {
     //Mis privados
     protected String nombre;
@@ -48,6 +47,13 @@ public abstract class Monstruo implements EsqueletoComportamiento
             throw new AtributoInvalidoException("Vida no puede ser inferior a 1!", this.vida);
         }
             this.vida = vida;
+    }
+
+    //Regresa negativo si es menor, cero si son iguales, positivo si es superior
+    @Override
+    public int compareTo(Monstruo otro)
+    {
+        return Integer.compare(this.nivel, otro.nivel);
     }
 
     //Mi toString

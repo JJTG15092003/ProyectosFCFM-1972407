@@ -1,5 +1,5 @@
 package ExcepcionesAct8;
-import Actividad07.Botin;
+import Actividad08.Botin;
 
 public class RecompensaIlegalException extends BestiarioException
 {
