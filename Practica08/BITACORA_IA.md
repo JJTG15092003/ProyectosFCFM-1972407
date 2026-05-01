@@ -9,3 +9,8 @@ Respuesta de la IA:
 "Como se hacen las comparaciones con el HashMap?"
 Respuesta de la IA:
 - Me enseño a guardar el Hash de un algo, para luego buscarlo
+
+"Me podrias ayudar con el punto que dice: 7. Análisis del tiempo de ejecución de las operaciones implementadas.
+¿Como lo hago?"
+Respuesta de la IA:
+- Me explico a usar la notacion Big O, para ver como crece el numero de datos de cada proceso
