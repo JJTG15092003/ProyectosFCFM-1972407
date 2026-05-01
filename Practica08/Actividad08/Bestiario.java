@@ -194,4 +194,20 @@ public class Bestiario
             }
         }
     }
+
+    //Mi HashMap para buscar al Monstruo en funcion de su nombre (Esto sera mi key)
+    public HashMap<String, Monstruo> getMapaPorNombre()
+    {
+        return mapaPorNombre;
+    }
+
+    //Mi historial de los eventos
+    public void mostrarHistorial()
+    {
+        System.out.println("=== Historial de Eventos Recientes ===");
+        for (String evento : historialCombate)
+        {
+            System.out.println("- " + evento);
+        }
+    }
 }

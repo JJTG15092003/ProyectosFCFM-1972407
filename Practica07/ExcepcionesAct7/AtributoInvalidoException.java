@@ -1,6 +1,6 @@
 package ExcepcionesAct7;
 
-import ExcepcionesAct8.BestiarioException;
+import ExcepcionesAct7.BestiarioException;
 
 public class AtributoInvalidoException extends BestiarioException
 {

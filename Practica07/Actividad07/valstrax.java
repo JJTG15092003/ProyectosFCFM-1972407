@@ -6,8 +6,7 @@ public class valstrax extends organico implements EsqueletoComportamiento, Accio
 {
     private int postura = 10;
     public valstrax(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
-            throws ExcepcionesAct8.AtributoInvalidoException, RecompensaIlegalException
-    {
+            throws ExcepcionesAct8.AtributoInvalidoException, RecompensaIlegalException, ExcepcionesAct7.RecompensaIlegalException {
         super(nombre, vida, nivel, recompensa, esJefe);
     }
 

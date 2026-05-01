@@ -5,3 +5,7 @@ Respuesta de la IA:
     en memoria del siguiente nodo
 - HashMap: No guarda datos, sino las "llaves" para acceder a las ubicaciones de memoria de estos datos.
 - Hashset: Permite guardar datos pero no repetidos
+
+"Como se hacen las comparaciones con el HashMap?"
+Respuesta de la IA:
+- Me enseño a guardar el Hash de un algo, para luego buscarlo

@@ -7,8 +7,7 @@ public class lesserLich extends noMuerto implements EsqueletoComportamiento, Acc
 {
     private int almasAtrapadas = 0;
     public lesserLich(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
-            throws AtributoInvalidoException, RecompensaIlegalException
-    {
+            throws AtributoInvalidoException, RecompensaIlegalException, ExcepcionesAct7.RecompensaIlegalException {
         super(nombre, vida, nivel, recompensa, esJefe);
     }
 

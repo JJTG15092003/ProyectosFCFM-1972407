@@ -1,5 +1,5 @@
 package Actividad07;
-import ExcepcionesAct8.RecompensaIlegalException;
+import ExcepcionesAct7.RecompensaIlegalException;
 
 public abstract class Monstruo implements EsqueletoComportamiento
 {
@@ -12,8 +12,7 @@ public abstract class Monstruo implements EsqueletoComportamiento
     protected boolean esJefe;
 
     //Mis constructores
-    public Monstruo(String nombre, String tipo, float vida, int nivel, Botin recompensa, boolean esJefe) throws ExcepcionesAct8.AtributoInvalidoException, ExcepcionesAct8.RecompensaIlegalException
-    {
+    public Monstruo(String nombre, String tipo, float vida, int nivel, Botin recompensa, boolean esJefe) throws ExcepcionesAct8.AtributoInvalidoException, ExcepcionesAct8.RecompensaIlegalException, RecompensaIlegalException {
         this.nombre = nombre;
         this.tipo = tipo;
         this.esJefe = esJefe;
@@ -23,7 +22,7 @@ public abstract class Monstruo implements EsqueletoComportamiento
     }
 
     //Mis setter
-    public void setRecompensa(Botin recompensa) throws ExcepcionesAct8.RecompensaIlegalException
+    public void setRecompensa(Botin recompensa) throws ExcepcionesAct7.RecompensaIlegalException
     {
         if (this.esJefe && recompensa == null)
         {

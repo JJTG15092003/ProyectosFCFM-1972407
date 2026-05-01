@@ -5,7 +5,7 @@ import ExcepcionesAct8.RecompensaIlegalException;
 
 public class noMuerto extends Monstruo implements EsqueletoComportamiento
 {
-    public noMuerto(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe) throws AtributoInvalidoException, RecompensaIlegalException {
+    public noMuerto(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe) throws AtributoInvalidoException, RecompensaIlegalException, ExcepcionesAct7.RecompensaIlegalException {
         super(nombre, "No-muerto", vida, nivel, recompensa, esJefe);
     }
 

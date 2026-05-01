@@ -5,7 +5,7 @@ import ExcepcionesAct8.RecompensaIlegalException;
 
 public class automataRobot extends Monstruo implements EsqueletoComportamiento
 {
-    public automataRobot(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe) throws AtributoInvalidoException, RecompensaIlegalException {
+    public automataRobot(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe) throws AtributoInvalidoException, RecompensaIlegalException, ExcepcionesAct7.RecompensaIlegalException {
         super(nombre, "Constructo autónomo", vida, nivel, recompensa, esJefe);
     }
 

@@ -5,7 +5,7 @@ import ExcepcionesAct8.RecompensaIlegalException;
 
 public class organico extends Monstruo implements EsqueletoComportamiento
 {
-    public organico(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe) throws AtributoInvalidoException, RecompensaIlegalException {
+    public organico(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe) throws AtributoInvalidoException, RecompensaIlegalException, ExcepcionesAct7.RecompensaIlegalException {
         super(nombre, "Orgánico", vida, nivel, recompensa, esJefe);
     }
 

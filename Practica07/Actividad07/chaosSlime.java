@@ -10,8 +10,7 @@ public class chaosSlime extends organico implements EsqueletoComportamiento, Acc
     float vidamax;
     Random random = new Random();
     public chaosSlime(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
-            throws AtributoInvalidoException, RecompensaIlegalException
-    {
+            throws AtributoInvalidoException, RecompensaIlegalException, ExcepcionesAct7.RecompensaIlegalException {
         super(nombre, vida, nivel, recompensa, esJefe);
         this.vidamax = vida;
     }

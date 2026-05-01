@@ -1,83 +1,131 @@
 package Actividad08;
 import ExcepcionesAct8.AtributoInvalidoException;
 import ExcepcionesAct8.BestiarioException;
+import java.util.Scanner;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 public class Main
 {
     public static void main(String[] args)
     {
-        //Contenedor de monstruos
         Bestiario miBestiario = new Bestiario();
-
+        Scanner leer = new Scanner(System.in);
+        int opcion = -1;
 
         Comparator<Monstruo> porVida = (m1, m2) -> Float.compare(m2.getVida(), m1.getVida());
         Comparator<Monstruo> porNombre = (m1, m2) -> m1.getNombre().compareTo(m2.getNombre());
 
-        //Mis recompensas
-        Botin dropLich = new Botin("Cetro de Hueso", 500);
-        Botin dropSlime = new Botin("Núcleo de Caos", 10000);
-        Botin dropComun = new Botin("Trapo sucio", 2);
-        Botin dropElder = new Botin("Núcleo de Valstrax", 8000);
+        //Necesitamos... MONSTRUOS
+        cargarDatosPrueba(miBestiario);
 
-        //Ahora tengo que meter a todas las creaciones de mis monstruos en el try para que no exista posibilidad de error
-        try
-        {
-            //Necesitamos... MONSTRUOS
-            lesserLich m1 = new lesserLich("Lesser lich", 150, 45, dropLich, true);
-            zombie m2 = new zombie("Zombi común", 25, 5, dropComun, false);
-            chaosSlime m3 = new chaosSlime("Chaos Demon Lord GodLike Slime", 75000000, 3000, dropSlime, true);
-            valstrax m4 = new valstrax("Drágon anciano Valstrax", 75000, 75, dropElder, true);
-            automata m5 = new automata("Sirvienta automata de porcelana", 150, 14, dropComun, false);
+        System.out.println("--- BIENVENIDO AL SISTEMA DEL BESTIARIO ---");
 
-            //Para probar que todo va bien, voy a crear un Valstrax que a proposito tiene datos incorrectos
-            valstrax mErroneo = new valstrax("Valstrax Fallido", -10, 0, null, true);
+        while (opcion != 0) {
+            System.out.println("\n========= MENÚ DE GESTIÓN =========");
+            System.out.println("1. Ver Bestiario (Orden Natural por Nivel)");
+            System.out.println("2. Ordenar por Vida (Descendente)");
+            System.out.println("3. Ordenar por Nombre (Alfabético)");
+            System.out.println("4. Buscar Monstruo por Nombre (HashMap)");
+            System.out.println("5. Filtrar Jefes Peligrosos (Streams)");
+            System.out.println("6. Eliminar Monstruos Débiles (Iterator)");
+            System.out.println("7. Mostrar el historial");
+            System.out.println("0. Salir");
+            System.out.print("Selecciona una opción: ");
 
-            miBestiario.agregarMonstruo(m1);
-            miBestiario.agregarMonstruo(m2);
-            miBestiario.agregarMonstruo(m3);
-            miBestiario.agregarMonstruo(m4);
-            miBestiario.agregarMonstruo(m5);
-            miBestiario.agregarMonstruo(mErroneo);
-        }
-        catch (AtributoInvalidoException e)
-        {
-            System.out.println("Capturado error de atributo: " + e.getMessage());
-            System.out.println("Valor que causó el fallo: " + e.getValorErroneo());
-            miBestiario.registrarError(e);
-        } catch (BestiarioException e)
-        {
-            miBestiario.registrarError(e);
-        }
-
-        for(Monstruo m : miBestiario.getLista())
-        {
-            // Usamos el Getter para consultar si es jefe
-            if(m.isEsJefe())
+            try
             {
-                System.out.println("¡CUIDADO! Apareció el jefe: " + m.getNombre());
+                opcion = Integer.parseInt(leer.nextLine());
+
+                switch (opcion)
+                {
+                    case 1:
+                        //Comparacion convencional (la del mostrar todo)
+                        Collections.sort(miBestiario.getLista());
+                        miBestiario.mostrarTodo();
+                        break;
+                    case 2:
+                        //Comparacion en base a la vida del monstruo
+                        miBestiario.getLista().sort(porVida);
+                        miBestiario.mostrarTodo();
+                        break;
+                    case 3:
+                        //Comparacion en base al nombre del monstruo
+                        miBestiario.getLista().sort(porNombre);
+                        miBestiario.mostrarTodo();
+                        break;
+                    case 4:
+                        System.out.print("Ingresa el nombre exacto del monstruo: ");
+                        String nombreBuscar = leer.nextLine();
+                        Monstruo encontrado = miBestiario.getMapaPorNombre().get(nombreBuscar);
+                        if (encontrado != null)
+                        {
+                            System.out.println("--- Monstruo Encontrado (Búsqueda O(1)) ---");
+                            System.out.println(encontrado);
+                        } else
+                        {
+                            System.out.println("No se encontró ningún monstruo con ese nombre.");
+                        }
+                        break;
+                    case 5:
+                        //Mi filtro compuesto
+                        System.out.print("Vida mínima para considerar peligroso: ");
+                        float vMin = Float.parseFloat(leer.nextLine());
+                        List<Monstruo> peligrosos = miBestiario.filtrarJefesPeligrosos(vMin);
+                        peligrosos.forEach(System.out::println);
+                        break;
+                    case 6:
+                        System.out.print("Vida mínima para sobrevivir: ");
+                        float vCorte = Float.parseFloat(leer.nextLine());
+                        miBestiario.eliminarMonstruosDebiles(vCorte);
+                        System.out.println("Limpieza completada.");
+                        break;
+                    case 7:
+                        miBestiario.mostrarHistorial();
+                        break;
+                    case 0:
+                        System.out.println("Saliendo del programa...");
+                        break;
+                    default:
+                        System.out.println("Opción no válida.");
+                }
+            }
+            catch (Exception e)
+            {
+                System.out.println("Error en la entrada de datos: " + e.getMessage());
             }
         }
-        miBestiario.mostrarTodo();
+    }
 
-        System.out.println("\n\n\n");
-
-        System.out.println("=== SIMULACION DE COMBATE ===");
-
-        //Diplomacia
-        miBestiario.intentarDiplomacia();
-        //Intimidacion
-        miBestiario.intentarIntimidar();
-        //Accion
-        miBestiario.ejecutarAtaque();
-
-        //Demostracion
-        System.out.println("\n--- Prueba de Métodos de Clase Base (Monstruo) ---");
-        for (Monstruo m : miBestiario.getLista())
+    //Creacion de monstruos
+    private static void cargarDatosPrueba(Bestiario b)
+    {
+        try
         {
-            m.prepararAtaque(); // Método abstracto implementado
-            m.recibirDanio(50); // Método concreto de la clase base
-            System.out.println(m.getNombre() + " ahora tiene " + m.vida + " HP.");
+            Botin comun = new Botin("Pocion", 10);
+            Botin raro = new Botin("Gema de Alma", 500);
+            Botin legendario = new Botin("Fragmento Estelar", 2000);
+
+            b.agregarMonstruo(new zombie("Zombi A", 20, 1, comun, false));
+            b.agregarMonstruo(new zombie("Zombi B", 25, 2, comun, false));
+            b.agregarMonstruo(new lesserLich("Lesser-Lich", 100, 10, raro, true));
+            b.agregarMonstruo(new automata("Maid Automata", 150, 5, comun, false));
+            b.agregarMonstruo(new valstrax("Valstrax", 5000, 50, legendario, true));
+            b.agregarMonstruo(new chaosSlime("Slime Rojo", 30, 3, comun, false));
+            b.agregarMonstruo(new chaosSlime("Slime Azul", 35, 4, comun, false));
+            b.agregarMonstruo(new zombie("SkinWalker", 40, 6, comun, false));
+            b.agregarMonstruo(new lesserLich("Arch-Lich", 300, 20, raro, true));
+            b.agregarMonstruo(new automata("Automata de combate", 200, 15, raro, false));
+            b.agregarMonstruo(new chaosSlime("ChaosLordSlime", 1000000, 750, legendario, true));
+            b.agregarMonstruo(new valstrax("Cria de Dragon", 800, 12, raro, false));
+            b.agregarMonstruo(new zombie("Héroe roto", 50, 8, comun, false));
+            b.agregarMonstruo(new automata("Centinela", 400, 18, raro, false));
+            b.agregarMonstruo(new lesserLich("Constructo de sombras", 120, 9, comun, false));
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error cargando datos!!: " + e.getMessage());
         }
     }
 }

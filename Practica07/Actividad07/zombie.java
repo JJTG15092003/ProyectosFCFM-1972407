@@ -6,8 +6,7 @@ import ExcepcionesAct8.RecompensaIlegalException;
 public class zombie extends noMuerto implements EsqueletoComportamiento, Accion
 {
     public zombie(String nombre, float vida, int nivel, Botin recompensa, boolean esJefe)
-            throws AtributoInvalidoException, RecompensaIlegalException
-    {
+            throws AtributoInvalidoException, RecompensaIlegalException, ExcepcionesAct7.RecompensaIlegalException {
         super(nombre, vida, nivel, recompensa, esJefe);
     }
 
