@@ -1,4 +1,6 @@
-package Actividad07;
+package Actividad08;
+
+import ExcepcionesAct8.AtributoInvalidoException;
 import ExcepcionesAct8.BestiarioException;
 
 public class Main
@@ -34,7 +36,7 @@ public class Main
             miBestiario.agregarMonstruo(m5);
             miBestiario.agregarMonstruo(mErroneo);
         }
-        catch (ExcepcionesAct8.AtributoInvalidoException e)
+        catch (AtributoInvalidoException e)
         {
             System.out.println("Capturado error de atributo: " + e.getMessage());
             System.out.println("Valor que causó el fallo: " + e.getValorErroneo());

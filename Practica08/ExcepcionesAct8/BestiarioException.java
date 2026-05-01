@@ -1,4 +1,4 @@
-package Excepciones;
+package ExcepcionesAct8;
 import java.time.LocalDateTime;
 
 public class BestiarioException extends Exception

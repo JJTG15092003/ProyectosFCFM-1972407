@@ -1,4 +1,5 @@
-package Actividad07;
+package Actividad08;
+
 import ExcepcionesAct8.BestiarioException;
 
 import java.io.FileWriter;
@@ -47,7 +48,7 @@ public class Bestiario
             pw.println("Fecha: " + java.time.LocalDateTime.now());
             pw.println("Mensaje: " + e.getMessage());
 
-            if (e instanceof ExcepcionesAct8.BestiarioException)
+            if (e instanceof BestiarioException)
             {
                 pw.println("Timestamp original: " + ((BestiarioException) e).getTimestamp());
             }

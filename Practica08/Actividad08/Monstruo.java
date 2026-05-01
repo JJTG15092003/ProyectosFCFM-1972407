@@ -1,4 +1,6 @@
-package Actividad07;
+package Actividad08;
+
+import ExcepcionesAct8.AtributoInvalidoException;
 import ExcepcionesAct8.RecompensaIlegalException;
 
 public abstract class Monstruo implements EsqueletoComportamiento
@@ -12,7 +14,7 @@ public abstract class Monstruo implements EsqueletoComportamiento
     protected boolean esJefe;
 
     //Mis constructores
-    public Monstruo(String nombre, String tipo, float vida, int nivel, Botin recompensa, boolean esJefe) throws ExcepcionesAct8.AtributoInvalidoException, ExcepcionesAct8.RecompensaIlegalException
+    public Monstruo(String nombre, String tipo, float vida, int nivel, Botin recompensa, boolean esJefe) throws AtributoInvalidoException, RecompensaIlegalException
     {
         this.nombre = nombre;
         this.tipo = tipo;
@@ -23,7 +25,7 @@ public abstract class Monstruo implements EsqueletoComportamiento
     }
 
     //Mis setter
-    public void setRecompensa(Botin recompensa) throws ExcepcionesAct8.RecompensaIlegalException
+    public void setRecompensa(Botin recompensa) throws RecompensaIlegalException
     {
         if (this.esJefe && recompensa == null)
         {
@@ -31,19 +33,19 @@ public abstract class Monstruo implements EsqueletoComportamiento
         }
             this.recompensa = recompensa;
     }
-    public void setNivel(int nivel) throws ExcepcionesAct8.AtributoInvalidoException
+    public void setNivel(int nivel) throws AtributoInvalidoException
     {
         if (nivel <= 0)
         {
-            throw new ExcepcionesAct8.AtributoInvalidoException("El nivel no puede ser inferior o igual a cero!", this.nivel);
+            throw new AtributoInvalidoException("El nivel no puede ser inferior o igual a cero!", this.nivel);
         }
             this.nivel = nivel;
     }
-    public void setVida(float vida) throws ExcepcionesAct8.AtributoInvalidoException
+    public void setVida(float vida) throws AtributoInvalidoException
     {
         if (vida <= 0)
         {
-            throw new ExcepcionesAct8.AtributoInvalidoException("Vida no puede ser inferior a 1!", this.vida);
+            throw new AtributoInvalidoException("Vida no puede ser inferior a 1!", this.vida);
         }
             this.vida = vida;
     }
@@ -77,7 +79,7 @@ public abstract class Monstruo implements EsqueletoComportamiento
     {
         this.vida -= cantidad;
     }
-    public void aumentoNivel() throws ExcepcionesAct8.AtributoInvalidoException
+    public void aumentoNivel() throws AtributoInvalidoException
     {
         setNivel(this.nivel + 1);
     }

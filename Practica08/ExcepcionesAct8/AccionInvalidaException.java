@@ -1,4 +1,4 @@
-package Excepciones;
+package ExcepcionesAct8;
 
 public class AccionInvalidaException extends BestiarioException
 {

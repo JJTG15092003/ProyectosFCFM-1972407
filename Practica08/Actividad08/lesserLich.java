@@ -1,4 +1,4 @@
-package Actividad07;
+package Actividad08;
 
 import ExcepcionesAct8.AtributoInvalidoException;
 import ExcepcionesAct8.RecompensaIlegalException;

@@ -1,4 +1,4 @@
-package Excepciones;
+package ExcepcionesAct8;
 
 public class AtributoInvalidoException extends BestiarioException
 {
