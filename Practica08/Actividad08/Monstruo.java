@@ -75,6 +75,14 @@ public abstract class Monstruo implements EsqueletoComportamiento,Comparable<Mon
     {
         return nombre;
     }
+    public String getTipo()
+    {
+        return tipo;
+    }
+    public float getVida()
+    {
+        return vida;
+    }
 
     //Mis metodos
     public void recibirCura(float cantidad)

@@ -1,18 +1,30 @@
 package Actividad08;
-
 import ExcepcionesAct8.BestiarioException;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.Iterator;
+import ExcepcionesAct8.AtributoInvalidoException;
 
 public class Bestiario
 {
     private ArrayList<Monstruo> listaMonstruos;
+    private HashMap<String, Monstruo> mapaPorNombre;
+    private HashSet<String> tiposDescubiertos;
+    private LinkedList<String> historialCombate;
+
     public Bestiario()
     {
         this.listaMonstruos = new ArrayList<>();
+        this.mapaPorNombre = new HashMap<>();
+        this.tiposDescubiertos = new HashSet<>();
+        this.historialCombate = new LinkedList<>();
     }
 
     public ArrayList<Monstruo> getLista()
@@ -24,8 +36,41 @@ public class Bestiario
     public void agregarMonstruo(Monstruo m)
     {
         listaMonstruos.add(m);
-        System.out.println("Se ha registrado un nuevo monstruo!");
+        mapaPorNombre.put(m.getNombre(), m);
+        tiposDescubiertos.add(m.getTipo());
+        historialCombate.addFirst("Registrado: " + m.getNombre());
     }
+
+    public List<Monstruo> filtrarJefesPeligrosos(float vidaMinima)
+    {
+        return listaMonstruos.stream()
+                .filter(m -> m.isEsJefe() && m.getVida() > vidaMinima)
+                .collect(Collectors.toList());
+    }
+
+    public void subirNivelMonstruo(String nombre) throws AtributoInvalidoException
+    {
+        Monstruo m = mapaPorNombre.get(nombre);
+        if (m != null)
+        {
+            m.aumentoNivel();
+            historialCombate.addFirst("Nivel subido: " + nombre);
+        }
+    }
+
+    public void eliminarMonstruosDebiles(float vidaMinima)
+    {
+        Iterator<Monstruo> it = listaMonstruos.iterator();
+        while (it.hasNext()) {
+            Monstruo m = it.next();
+            if (m.getVida() < vidaMinima)
+            {
+                mapaPorNombre.remove(m.getNombre());
+                it.remove();
+            }
+        }
+    }
+
     public void mostrarTodo()
     {
         System.out.println("=== Bestiario ===");

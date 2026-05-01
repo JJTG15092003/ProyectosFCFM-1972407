@@ -1,7 +1,7 @@
 package Actividad08;
-
 import ExcepcionesAct8.AtributoInvalidoException;
 import ExcepcionesAct8.BestiarioException;
+import java.util.Comparator;
 
 public class Main
 {
@@ -9,6 +9,10 @@ public class Main
     {
         //Contenedor de monstruos
         Bestiario miBestiario = new Bestiario();
+
+
+        Comparator<Monstruo> porVida = (m1, m2) -> Float.compare(m2.getVida(), m1.getVida());
+        Comparator<Monstruo> porNombre = (m1, m2) -> m1.getNombre().compareTo(m2.getNombre());
 
         //Mis recompensas
         Botin dropLich = new Botin("Cetro de Hueso", 500);
