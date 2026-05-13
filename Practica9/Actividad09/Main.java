@@ -30,6 +30,10 @@ public class Main
             System.out.println("5. Filtrar Jefes Peligrosos (Streams)");
             System.out.println("6. Eliminar Monstruos Débiles (Iterator)");
             System.out.println("7. Mostrar el historial");
+            System.out.println("8. Guardar Bestiario (Archivo Binario)");
+            System.out.println("9. Cargar Bestiario (Archivo Binario)");
+            System.out.println("10. Importar Monstruos (Desde CSV)");
+            System.out.println("11. Exportar Reporte (Formato JSON)");
             System.out.println("0. Salir");
             System.out.print("Selecciona una opción: ");
 
@@ -82,6 +86,25 @@ public class Main
                         break;
                     case 7:
                         miBestiario.mostrarHistorial();
+                        break;
+                    case 8:
+                        System.out.println("Guardando Bestiario...");
+                        Archivador.guardarBestiario(miBestiario, "bestiario.dat");
+                        break;
+
+                    case 9:
+                        System.out.println("Cargando desde archivo binario...");
+                        Archivador.cargarBestiario(miBestiario, "bestiario.dat");
+                        break;
+
+                    case 10:
+                        System.out.println("Importando datos desde CSV...");
+                        Archivador.importarDesdeCSV(miBestiario, "monstruos.csv");
+                        break;
+
+                    case 11:
+                        System.out.println("Exportando a formato JSON...");
+                        Archivador.exportarAJSON(miBestiario, "reporte.json");
                         break;
                     case 0:
                         System.out.println("Saliendo del programa...");
