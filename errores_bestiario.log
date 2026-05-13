@@ -10,3 +10,18 @@ Mensaje: El nivel no puede ser inferior o igual a cero!
 Timestamp original: 2026-04-29T22:22:27.607876700
 -----------------------
 
+=== ERROR DETECTADO ===
+Fecha: 2026-05-12T19:18:51.180810200
+Mensaje: bestiario.dat (El sistema no puede encontrar el archivo especificado)
+-----------------------
+
+=== ERROR DETECTADO ===
+Fecha: 2026-05-12T19:19:16.719673300
+Mensaje: monstruos.csv (El sistema no puede encontrar el archivo especificado)
+-----------------------
+
+=== ERROR DETECTADO ===
+Fecha: 2026-05-12T19:20:57.420039100
+Mensaje: monstruos.csv (El sistema no puede encontrar el archivo especificado)
+-----------------------
+
