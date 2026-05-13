@@ -4,6 +4,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Main
 {
@@ -33,7 +36,8 @@ public class Main
             System.out.println("8. Guardar Bestiario (Archivo Binario)");
             System.out.println("9. Cargar Bestiario (Archivo Binario)");
             System.out.println("10. Importar Monstruos (Desde CSV)");
-            System.out.println("11. Exportar Reporte (Formato JSON)");
+            System.out.println("11. Exportar Reporte (JSON)");
+            System.out.println("12. SIMULACIÓN: Iniciar Farmeo Concurrente (Hilos)");
             System.out.println("0. Salir");
             System.out.print("Selecciona una opción: ");
 
@@ -106,6 +110,9 @@ public class Main
                         System.out.println("Exportando a formato JSON...");
                         Archivador.exportarAJSON(miBestiario, "reporte.json");
                         break;
+                    case 12:
+                        iniciarSimulacion(miBestiario);
+                        break;
                     case 0:
                         System.out.println("Saliendo del programa...");
                         break;
@@ -118,6 +125,38 @@ public class Main
                 System.out.println("Error en la entrada de datos: " + e.getMessage());
             }
         }
+    }
+
+    private static void iniciarSimulacion(Bestiario b)
+    {
+        System.out.println("\n--- INICIANDO SIMULACION DE COMBATE Y EL BOTIN ---");
+
+        CofreCompartido cofre = new CofreCompartido();
+        ExecutorService pool = Executors.newFixedThreadPool(5);
+
+        pool.execute(new Jugador("XxArturoElPro67xX", cofre));
+        pool.execute(new Jugador("NoobLoserSixti4", cofre));
+        pool.execute(new Jugador("Vegetta777", cofre));
+
+        for (Monstruo m : b.getLista())
+        {
+            pool.execute(new GeneradorDeBotin(m, cofre));
+        }
+
+        pool.shutdown();
+
+        try {
+            System.out.println("La simulación correrá por 10 segundos...");
+            if (!pool.awaitTermination(10, TimeUnit.SECONDS))
+            {
+                pool.shutdownNow(); //Cierre forzado si se tarda bastante
+            }
+        } catch (InterruptedException e)
+        {
+            pool.shutdownNow();
+        }
+
+        System.out.println("--- SIMULACION FINALIZADA ---");
     }
 
     //Creacion de monstruos
