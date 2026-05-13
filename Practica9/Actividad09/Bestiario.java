@@ -1,7 +1,7 @@
 package Actividad09;
 
-import ExcepcionesAct8.AtributoInvalidoException;
-import ExcepcionesAct8.BestiarioException;
+import ExcepcionesAct9.AtributoInvalidoException;
+import ExcepcionesAct9.BestiarioException;
 
 import java.io.FileWriter;
 import java.io.IOException;

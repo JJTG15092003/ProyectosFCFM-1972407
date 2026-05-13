@@ -1,7 +1,7 @@
 package Actividad09;
 
-import ExcepcionesAct8.AtributoInvalidoException;
-import ExcepcionesAct8.RecompensaIlegalException;
+import ExcepcionesAct9.AtributoInvalidoException;
+import ExcepcionesAct9.RecompensaIlegalException;
 
 public class lesserLich extends noMuerto implements EsqueletoComportamiento, Accion
 {

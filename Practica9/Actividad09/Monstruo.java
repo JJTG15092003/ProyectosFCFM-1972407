@@ -1,9 +1,11 @@
 package Actividad09;
-import ExcepcionesAct8.AtributoInvalidoException;
-import ExcepcionesAct8.RecompensaIlegalException;
+import ExcepcionesAct9.AtributoInvalidoException;
+import ExcepcionesAct9.RecompensaIlegalException;
+import java.io.Serializable;
 
-public abstract class Monstruo implements EsqueletoComportamiento,Comparable<Monstruo>
+public abstract class Monstruo implements EsqueletoComportamiento,Comparable<Monstruo>, Serializable
 {
+    private static final long serialVersionUID = 1L;
     //Mis privados
     protected String nombre;
     protected String tipo;
