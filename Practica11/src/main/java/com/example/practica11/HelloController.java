@@ -27,7 +27,28 @@ public class HelloController
     {
         colNombre.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
         colNivel.setCellValueFactory(cellData -> cellData.getValue().nivelProperty().asObject());
+
+        //Le añado una barra de vida en lugar de puro texto
         colVida.setCellValueFactory(cellData -> cellData.getValue().vidaProperty().asObject());
+        colVida.setCellFactory(column -> new TableCell<>()
+        {
+            private final HealthBar hb = new HealthBar();
+
+            @Override
+            protected void updateItem(Double vida, boolean empty)
+            {
+                super.updateItem(vida, empty);
+                if (empty || vida == null)
+                {
+                    setGraphic(null);
+                } else
+                {
+                    //Voy a considerar 5000 de vida el maximo. Cualquiera por debajo tiene "poca vida"
+                    hb.setSalud(vida, 5000.0);
+                    setGraphic(hb);
+                }
+            }
+        });
 
         FilteredList<Monstruo> listaFiltrada = new FilteredList<>(listaMaestra, p -> true);
         filtroNombre.textProperty().addListener((observable, oldValue, newValue) ->
@@ -48,10 +69,10 @@ public class HelloController
         );
 
         // Datos de prueba
-        listaMaestra.add(new Monstruo("Valstrax", 50, 5000.0));
-        listaMaestra.add(new Monstruo("Zombi", 5, 100.0));
-        listaMaestra.add(new Monstruo("Chaos Slime",75, 9500.0));
-        listaMaestra.add(new Monstruo("Conejo", 999, 100000009.0));
+        listaMaestra.add(new Monstruo("Valstrax", 50, 1500.0));
+        listaMaestra.add(new Monstruo("Zombi", 5, 500.0));
+        listaMaestra.add(new Monstruo("Chaos Slime",75, 5000.0));
+        listaMaestra.add(new Monstruo("Conejo", 999, 3500.0));
     }
 
     //Manejo de eventos

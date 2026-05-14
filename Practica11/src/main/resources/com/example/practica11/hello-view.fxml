@@ -29,7 +29,7 @@
                 <columns>
                     <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150"/>
                     <TableColumn fx:id="colNivel" text="Nivel" prefWidth="80"/>
-                    <TableColumn fx:id="colVida" text="Vida" prefWidth="100"/>
+                    <TableColumn fx:id="colVida" text="Vida" prefWidth="150"/>
                 </columns>
             </TableView>
         </VBox>
