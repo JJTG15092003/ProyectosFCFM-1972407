@@ -20,3 +20,16 @@ Respuesta de la IA:
 - Me explico lo que es el Data Binding, que consiste en poder cambiar a tiempo real el contenido de un objeto sin
     tener que obligar la reelectura del mismo
 
+"En el hello-view, valla, lo que es lo visible, ¿como se construye?
+Como se pone por ejemplo un boton, o que necesito para hacer mi CRUD?"
+Respuesta de la IA:
+- La interfaz es una jerarquia de contenedores, es similar a las estructuras de las paginas web, el como las partes
+    del mismo estan divididas por secciones que abren con <> y cierran ton </>
+- Me explico como funciona VBOX, HBOX, BorderPane, TextField
+
+"¿Para que es @FXML?"
+Respuesta de la IA:
+- Me explico la diferencia entre el .fxml y el .java. Donde el .fxml guarda la posicion de los botones y el contenido,
+    mientras que el .java guarda la funcion del programa
+- "Al poner @FXML, le estás diciendo al cargador de JavaFX: "Busca en el archivo FXML un elemento que tenga el fx:id 
+    igual al nombre de esta variable e inyéctalo aquí"."

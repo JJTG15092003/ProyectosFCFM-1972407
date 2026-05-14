@@ -1,16 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.practica11.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.practica11.HelloController">
+    <top>
+        <MenuBar>
+            <Menu text="Archivo">
+                <MenuItem text="Cargar Datos" onAction="#onCargarDatosClick"/>
+                <MenuItem text="Salir" onAction="#onSalirClick"/>
+            </Menu>
+        </MenuBar>
+    </top>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Buscar Monstruo:"/>
+                <TextField fx:id="filtroNombre" promptText="Escribe un nombre..." HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <TableView fx:id="tablaMonstruos" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150"/>
+                    <TableColumn fx:id="colNivel" text="Nivel" prefWidth="80"/>
+                    <TableColumn fx:id="colVida" text="Vida" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox spacing="10" style="-fx-background-color: #f4f4f4;">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Bestiario de Monstruos" style="-fx-font-weight: bold"/>
+            <TextField fx:id="txtNombre" promptText="Nombre"/>
+            <TextField fx:id="txtNivel" promptText="Nivel"/>
+            <TextField fx:id="txtVida" promptText="Vida"/>
+            <Button fx:id="btnAgregar" text="Agregar Monstruo" onAction="#onAgregarClick" maxWidth="Infinity"/>
+            <Button text="Eliminar Seleccionado" onAction="#onEliminarClick" maxWidth="Infinity" style="-fx-text-fill: red;"/>
+        </VBox>
+    </right>
+</BorderPane>
