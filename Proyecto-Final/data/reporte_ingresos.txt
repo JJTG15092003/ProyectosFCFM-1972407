@@ -1,5 +1,5 @@
 === REPORTE DE INGRESOS ===
-Generado: 15/05/2026 20:35
+Generado: 15/05/2026 22:49
 ---------------------------
 
 Total de pagos registrados: 0

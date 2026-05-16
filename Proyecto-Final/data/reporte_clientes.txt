@@ -1,11 +1,30 @@
 === REPORTE DE CLIENTES ===
-Generado: 15/05/2026 20:48
+Generado: 15/05/2026 22:50
 ---------------------------
 
-Total de clientes: 3
+Total de clientes: 22
 Membresias activas: 3
 
 --- Listado de clientes ---
 ID: 3 | Manuel Davila | Email: manuel@gmail.com | Membresia: PLUS_ULTRA
 ID: 4 | Luis Carlos | Email: luis@gmail.com | Membresia: MENSUAL_BASIC_PRO
 ID: 5 | Arturo Cardenas | Email: arturo@gmail.com | Membresia: ANUAL_PLATINO_PLUS_DORADA_ULTRA_MAX
+ID: 6 | Juan Trujillo | Email: juan@gmail.com | Membresia: Sin membresia
+ID: 7 | Manolo Fantasy | Email: ostiaspedrin@gmail.com | Membresia: Sin membresia
+ID: 8 | Vegetta 777 | Email: vegetta@gmail.com | Membresia: Sin membresia
+ID: 9 | Master Chief 117 | Email: jefemaestro@gmail.com | Membresia: Sin membresia
+ID: 10 | ElLoco Dave | Email: locodave@gmail.com | Membresia: Sin membresia
+ID: 11 | Kratos Messi | Email: kratosmessi@gmail.com | Membresia: Sin membresia
+ID: 12 | Hernesto Perez | Email: hernestop@gmail.com | Membresia: Sin membresia
+ID: 13 | Claudia Cheimbaum | Email: presidente@gmail.com | Membresia: Sin membresia
+ID: 14 | Pablo Miraluz | Email: miraluzPablo@gmail.com | Membresia: Sin membresia
+ID: 15 | Jhon Alvarez | Email: alvaJhon@gmail.com | Membresia: Sin membresia
+ID: 16 | Christian Rodriguez | Email: crtdriguez@gmail.com | Membresia: Sin membresia
+ID: 17 | Josue Carmona | Email: carmonairion@gmail.com | Membresia: Sin membresia
+ID: 18 | Iridia Cruz Fuentes | Email: cruziridia@gmail.com | Membresia: Sin membresia
+ID: 19 | Lucero de la Paz | Email: pazcristo@outlook.com | Membresia: Sin membresia
+ID: 20 | Jesus Fuentes Palacios | Email: palaciosMaestros@gmail.com | Membresia: Sin membresia
+ID: 21 | Nozomi Sato | Email: satoNozomi@hotmail.com | Membresia: Sin membresia
+ID: 22 | Satori Komeiji | Email: komijiSato@gmail.com | Membresia: Sin membresia
+ID: 23 | Andres Obrador | Email: amlo@gmail.com | Membresia: Sin membresia
+ID: 24 | Jose Carlitos | Email: carlitos@gmail.com | Membresia: Sin membresia
