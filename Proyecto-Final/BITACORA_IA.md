@@ -25,3 +25,8 @@ Repuesta de la IA:
 Respuesta de la IA:
 - Me explico que es por que me equivoque en la escritura en los fxml. Despues de revisar dicho error, es por que
     use malamente el signo $ para los precios, y despues de que no dejara de salirme ese error, solo lo quite
+
+"Para el punto 4, me pide Manual técnico (10–15 páginas) con diagramas UML Que es un diagrama UML?"
+Respuesta de la IA:
+- Me explico que vienen de las siglas Unified Modeling Language, que es el diagrama que tenia previamente hecho,
+    solo falta que lo trabaje mas para cumplir con la practica
