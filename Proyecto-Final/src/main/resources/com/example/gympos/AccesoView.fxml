@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.gympos.view.AccesoViewController"
+            style="-fx-background-color: #1a1a2e;">
+
+    <left>
+        <VBox spacing="12" prefWidth="280"
+              style="-fx-background-color: #16213e; -fx-padding: 20;">
+
+            <Label text="Control de Acceso"
+                   style="-fx-text-fill: #e0e0e0; -fx-font-size: 15px; -fx-font-weight: BOLD;"/>
+            <Separator style="-fx-background-color: #0f3460;"/>
+
+            <Label text="ID o Nombre de Cliente"
+                   style="-fx-text-fill: #aaaaaa; -fx-font-size: 11px;"/>
+            <TextField fx:id="txtBuscarCliente" promptText="ID o nombre..."
+                       style="-fx-background-color: #1a1a2e; -fx-text-fill: #e0e0e0;
+                              -fx-prompt-text-fill: #555; -fx-border-color: #0f3460;
+                              -fx-border-radius: 3; -fx-background-radius: 3;"/>
+
+            <VBox fx:id="panelInfoCliente" spacing="4" visible="false"
+                  style="-fx-background-color: #0f3460; -fx-padding: 10; -fx-background-radius: 4;">
+                <Label fx:id="lblNombreCliente" text="-"
+                       style="-fx-text-fill: #e0e0e0; -fx-font-weight: BOLD;"/>
+                <Label fx:id="lblEstadoMembresia" text="-"
+                       style="-fx-text-fill: #aaaaaa; -fx-font-size: 11px;"/>
+                <Label fx:id="lblEstadoAcceso" text="-"
+                       style="-fx-text-fill: #4caf50; -fx-font-size: 11px;"/>
+            </VBox>
+
+            <Separator style="-fx-background-color: #0f3460;"/>
+
+            <Button text="Buscar Cliente" onAction="#handleBuscar" prefWidth="240"
+                    style="-fx-background-color: #0f3460; -fx-text-fill: #e0e0e0;
+                           -fx-border-radius: 3; -fx-background-radius: 3; -fx-cursor: hand;"/>
+            <Button text="Registrar Entrada" onAction="#handleEntrada" prefWidth="240"
+                    style="-fx-background-color: #1a4a1a; -fx-text-fill: #4caf50;
+                           -fx-font-weight: BOLD; -fx-border-radius: 3;
+                           -fx-background-radius: 3; -fx-cursor: hand;"/>
+            <Button text="Registrar Salida" onAction="#handleSalida" prefWidth="240"
+                    style="-fx-background-color: #4a1a1a; -fx-text-fill: #e94560;
+                           -fx-font-weight: BOLD; -fx-border-radius: 3;
+                           -fx-background-radius: 3; -fx-cursor: hand;"/>
+
+            <Label fx:id="lblStatus" text="" wrapText="true"
+                   style="-fx-text-fill: #4caf50; -fx-font-size: 11px;"/>
+
+            <Separator style="-fx-background-color: #0f3460;"/>
+            <Label text="PERSONAS EN GIMNASIO"
+                   style="-fx-text-fill: #555; -fx-font-size: 10px;"/>
+            <Label fx:id="lblPersonasDentro" text="0"
+                   style="-fx-text-fill: #e0e0e0; -fx-font-size: 36px; -fx-font-weight: BOLD;"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <Label text="Registros de Hoy"
+                   style="-fx-text-fill: #e0e0e0; -fx-font-size: 13px; -fx-font-weight: BOLD;"/>
+
+            <TableView fx:id="tablaAccesos" VBox.vgrow="ALWAYS"
+                       style="-fx-background-color: #16213e; -fx-border-color: #0f3460;">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colCliente" text="Cliente" prefWidth="180"/>
+                    <TableColumn fx:id="colEntrada" text="Entrada" prefWidth="140"/>
+                    <TableColumn fx:id="colSalida" text="Salida" prefWidth="140"/>
+                    <TableColumn fx:id="colDuracion" text="Duración" prefWidth="100"/>
+                    <TableColumn fx:id="colActivo" text="Activo" prefWidth="70"/>
+                </columns>
+                <placeholder>
+                    <Label text="Sin registros hoy." style="-fx-text-fill: #555;"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

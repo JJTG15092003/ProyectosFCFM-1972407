@@ -1,0 +1,9 @@
+=== REPORTE DE INGRESOS ===
+Generado: 15/05/2026 20:35
+---------------------------
+
+Total de pagos registrados: 0
+Ingresos del mes actual: $0.00
+Ingresos totales: $0.00
+
+--- Detalle de pagos ---

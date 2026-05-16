@@ -1,0 +1,11 @@
+=== REPORTE DE CLIENTES ===
+Generado: 15/05/2026 20:48
+---------------------------
+
+Total de clientes: 3
+Membresias activas: 3
+
+--- Listado de clientes ---
+ID: 3 | Manuel Davila | Email: manuel@gmail.com | Membresia: PLUS_ULTRA
+ID: 4 | Luis Carlos | Email: luis@gmail.com | Membresia: MENSUAL_BASIC_PRO
+ID: 5 | Arturo Cardenas | Email: arturo@gmail.com | Membresia: ANUAL_PLATINO_PLUS_DORADA_ULTRA_MAX

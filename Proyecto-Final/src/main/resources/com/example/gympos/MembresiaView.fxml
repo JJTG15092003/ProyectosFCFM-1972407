@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.gympos.view.MembresiaViewController"
+            style="-fx-background-color: #1a1a2e;">
+
+    <left>
+        <VBox spacing="10" prefWidth="280"
+              style="-fx-background-color: #16213e; -fx-padding: 20;">
+
+            <Label text="Nueva Membresía"
+                   style="-fx-text-fill: #e0e0e0; -fx-font-size: 15px; -fx-font-weight: BOLD;"/>
+            <Separator style="-fx-background-color: #0f3460;"/>
+
+            <Label text="ID de Cliente" style="-fx-text-fill: #aaaaaa; -fx-font-size: 11px;"/>
+            <TextField fx:id="txtIdCliente" promptText="ID del cliente"
+                       style="-fx-background-color: #1a1a2e; -fx-text-fill: #e0e0e0;
+                              -fx-prompt-text-fill: #555; -fx-border-color: #0f3460;
+                              -fx-border-radius: 3; -fx-background-radius: 3;"/>
+
+            <Label text="Plan" style="-fx-text-fill: #aaaaaa; -fx-font-size: 11px;"/>
+            <ComboBox fx:id="comboPlan" prefWidth="240"
+                      style="-fx-background-color: #1a1a2e; -fx-border-color: #0f3460;
+                             -fx-border-radius: 3;"/>
+
+            <Label text="Descuento (%)" style="-fx-text-fill: #aaaaaa; -fx-font-size: 11px;"/>
+            <TextField fx:id="txtDescuento" promptText="0"
+                       style="-fx-background-color: #1a1a2e; -fx-text-fill: #e0e0e0;
+                              -fx-prompt-text-fill: #555; -fx-border-color: #0f3460;
+                              -fx-border-radius: 3; -fx-background-radius: 3;"/>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Precio final:" style="-fx-text-fill: #aaaaaa; -fx-font-size: 11px;"/>
+                <Label fx:id="lblPrecioCalculado" text="\$0.00"
+                       style="-fx-text-fill: #e94560; -fx-font-size: 14px; -fx-font-weight: BOLD;"/>
+            </HBox>
+
+            <Separator style="-fx-background-color: #0f3460;"/>
+
+            <Button text="Crear Membresía" onAction="#handleCrear" prefWidth="240"
+                    style="-fx-background-color: #e94560; -fx-text-fill: white;
+                           -fx-font-weight: BOLD; -fx-border-radius: 3;
+                           -fx-background-radius: 3; -fx-cursor: hand;"/>
+            <Button text="Renovar Seleccionada" onAction="#handleRenovar" prefWidth="240"
+                    style="-fx-background-color: #0f3460; -fx-text-fill: #e0e0e0;
+                           -fx-border-radius: 3; -fx-background-radius: 3; -fx-cursor: hand;"/>
+
+            <Label fx:id="lblStatus" text="" wrapText="true"
+                   style="-fx-text-fill: #4caf50; -fx-font-size: 11px;"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20;">
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Filtrar:" style="-fx-text-fill: #aaaaaa;"/>
+                <ComboBox fx:id="comboFiltro" prefWidth="160"
+                          style="-fx-background-color: #16213e; -fx-border-color: #0f3460; -fx-border-radius: 3;"/>
+                <Button text="Aplicar" onAction="#handleFiltrar"
+                        style="-fx-background-color: #0f3460; -fx-text-fill: #e0e0e0;
+                               -fx-border-radius: 3; -fx-background-radius: 3; -fx-cursor: hand;"/>
+                <Button text="Todas Todas" onAction="#handleMostrarTodas"
+                        style="-fx-background-color: #1a1a2e; -fx-text-fill: #888;
+                               -fx-border-radius: 3; -fx-background-radius: 3; -fx-cursor: hand;"/>
+            </HBox>
+
+            <TableView fx:id="tablaMembresias" VBox.vgrow="ALWAYS"
+                       style="-fx-background-color: #16213e; -fx-border-color: #0f3460;">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colCliente" text="Cliente" prefWidth="160"/>
+                    <TableColumn fx:id="colPlan" text="Plan" prefWidth="100"/>
+                    <TableColumn fx:id="colPrecio" text="Precio" prefWidth="90"/>
+                    <TableColumn fx:id="colInicio" text="Inicio" prefWidth="100"/>
+                    <TableColumn fx:id="colVencimiento" text="Vencimiento" prefWidth="110"/>
+                    <TableColumn fx:id="colActiva" text="Estado" prefWidth="80"/>
+                </columns>
+                <placeholder>
+                    <Label text="Sin membresias registradas." style="-fx-text-fill: #555;"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

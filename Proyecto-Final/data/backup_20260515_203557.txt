@@ -1,0 +1,21 @@
+=== REPORTE DE CLIENTES ===
+Generado: 15/05/2026 20:35
+---------------------------
+
+Total de clientes: 2
+Membresias activas: 0
+
+--- Listado de clientes ---
+ID: 1 | Manul Davila | Email: ManuDavila@gmail.com | Membresia: Sin membresia
+ID: 2 | Manuel Davila | Email: manuel@gmail.com | Membresia: Sin membresia
+
+
+=== REPORTE DE INGRESOS ===
+Generado: 15/05/2026 20:35
+---------------------------
+
+Total de pagos registrados: 0
+Ingresos del mes actual: $0.00
+Ingresos totales: $0.00
+
+--- Detalle de pagos ---
